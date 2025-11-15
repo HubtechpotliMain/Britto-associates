@@ -1,0 +1,39 @@
+.wrapper {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  padding: 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.text {
+  color: #5f6a7d;
+  font-size: 16px;
+}

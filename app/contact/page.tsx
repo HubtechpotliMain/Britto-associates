@@ -1,0 +1,341 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import Hero from "@/components/Hero/Hero";
+import ContactCard from "@/components/ContactCard/ContactCard";
+import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
+import styles from "./contact.module.css";
+
+export default function Contact() {
+  const [activeTab, setActiveTab] = useState("contact");
+  const [isVisible, setIsVisible] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: ""
+  });
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+    alert("Thank you for your message! We'll get back to you soon.");
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: ""
+    });
+  };
+
+  const services = [
+    "Real Estate",
+    "Education Consultancy", 
+    "IT Job Assistance",
+    "Legal Consulting",
+    "Social Activism",
+    "General Inquiry"
+  ];
+
+  const quickActions = [
+    {
+      icon: "📞",
+      title: "Call Now",
+      description: "Speak directly with our team",
+      action: "tel:+919739950153",
+      color: "#10b981"
+    },
+    {
+      icon: "💬",
+      title: "WhatsApp",
+      description: "Quick chat for instant support",
+      action: "https://wa.me/919739950153",
+      color: "#25d366"
+    },
+    {
+      icon: "📧",
+      title: "Email Us",
+      description: "Send detailed inquiries",
+      action: "mailto:brittoassociates1967@gmail.com",
+      color: "#3b82f6"
+    },
+    {
+      icon: "📍",
+      title: "Visit Office",
+      description: "Schedule an office visit",
+      action: "#map",
+      color: "#f59e0b"
+    }
+  ];
+
+  return (
+    <>
+      {/* ---------------- HERO SECTION ---------------- */}
+      <Hero
+        title="Get In Touch With Us"
+        subtitle="Ready to transform your future? Connect with BRITTO ASSOCIATES for expert guidance in real estate, education, career, legal, and social services."
+        button1="Call Now"
+        button1Link="tel:+919739950153"
+        button2="WhatsApp"
+        button2Link="https://wa.me/919739950153"
+      />
+
+      {/* ---------------- QUICK ACTIONS ---------------- */}
+      <section className={styles.quickActions}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Quick Connect</h2>
+          <p className={styles.sectionSubtitle}>Choose your preferred way to reach us</p>
+          
+          <div className={styles.actionsGrid}>
+            {quickActions.map((action, index) => (
+              <a
+                key={action.title}
+                href={action.action}
+                className={styles.actionCard}
+                style={{ '--accent-color': action.color } as React.CSSProperties}
+                target={action.action.startsWith('http') ? '_blank' : '_self'}
+                rel={action.action.startsWith('http') ? 'noopener noreferrer' : ''}
+              >
+                <div className={styles.actionIcon} style={{ backgroundColor: action.color }}>
+                  {action.icon}
+                </div>
+                <h3>{action.title}</h3>
+                <p>{action.description}</p>
+                <div className={styles.actionHover}></div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- MAIN CONTENT ---------------- */}
+      <section className="container" ref={sectionRef}>
+        <div className={styles.tabContainer}>
+          <div className={styles.tabs}>
+            <button 
+              className={`${styles.tab} ${activeTab === "contact" ? styles.active : ''}`}
+              onClick={() => setActiveTab("contact")}
+            >
+              📞 Contact Info
+            </button>
+            <button 
+              className={`${styles.tab} ${activeTab === "form" ? styles.active : ''}`}
+              onClick={() => setActiveTab("form")}
+            >
+              ✉️ Send Message
+            </button>
+          </div>
+
+          <div className={styles.tabContent}>
+            {activeTab === "contact" && (
+              <div className={`${styles.contactSection} ${isVisible ? styles.animateIn : ''}`}>
+                <h2 className={styles.heading}>Our Contact Information</h2>
+                <p className={styles.subheading}>Multiple ways to connect with our team</p>
+
+                <div className={styles.grid}>
+                  <ContactCard
+                    label="Office Address"
+                    value="203, Kanakadasa Layout, Kanakadasa Main Road, Lingarajapuram, Bangalore – 560084"
+                    icon="📍"
+                    description="Visit us for personalized consultation"
+                  />
+
+                  <ContactCard
+                    label="Email Address"
+                    value="brittoassociates1967@gmail.com"
+                    icon="📧"
+                    link="mailto:brittoassociates1967@gmail.com"
+                    description="Send detailed inquiries and documents"
+                  />
+
+                  <ContactCard
+                    label="Phone Number"
+                    value="+91 9739950153"
+                    icon="📞"
+                    link="tel:+919739950153"
+                    description="Available 9 AM - 7 PM, Mon - Sat"
+                  />
+
+                  <ContactCard
+                    label="WhatsApp"
+                    value="+91 9739950153"
+                    icon="💬"
+                    link="https://wa.me/919739950153"
+                    description="Quick responses for instant support"
+                  />
+
+                  <ContactCard
+                    label="Working Hours"
+                    value="Monday - Saturday: 9:00 AM - 7:00 PM"
+                    icon="🕒"
+                    description="Sunday: Emergency services only"
+                  />
+
+                  <ContactCard
+                    label="Response Time"
+                    value="Within 2 hours during business hours"
+                    icon="⚡"
+                    description="We value your time and queries"
+                  />
+                </div>
+              </div>
+            )}
+
+            {activeTab === "form" && (
+              <div className={`${styles.formSection} ${isVisible ? styles.animateIn : ''}`}>
+                <h2 className={styles.heading}>Send Us a Message</h2>
+                <p className={styles.subheading}>Fill out the form below and we'll get back to you shortly</p>
+
+                <form className={styles.contactForm} onSubmit={handleSubmit}>
+                  <div className={styles.formRow}>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="name">Full Name *</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="email">Email Address *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formRow}>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="phone">Phone Number</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="service">Service Interested In *</label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleInputChange}
+                        required
+                      >
+                        <option value="">Select a service</option>
+                        {services.map(service => (
+                          <option key={service} value={service}>{service}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="message">Your Message *</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={5}
+                      placeholder="Tell us about your requirements..."
+                    />
+                  </div>
+
+                  <button type="submit" className={styles.submitBtn}>
+                    <span>Send Message</span>
+                    <span className={styles.btnIcon}>🚀</span>
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- GOOGLE MAP ---------------- */}
+      <section className={styles.mapSection} id="map">
+        <div className="container">
+          <h2 className={styles.heading}>Visit Our Office</h2>
+          <p className={styles.subheading}>Located in the heart of Bangalore for your convenience</p>
+
+          <div className={styles.mapContainer}>
+            <div className={styles.mapInfo}>
+              <div className={styles.addressCard}>
+                <h3>📍 Office Address</h3>
+                <p>203, Kanakadasa Layout<br />Kanakadasa Main Road<br />Lingarajapuram<br />Bangalore – 560084</p>
+                <div className={styles.mapFeatures}>
+                  <span>🚗 Ample Parking</span>
+                  <span>🚉 Near Metro Station</span>
+                  <span>🕒 Mon-Sat: 9AM-7PM</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className={styles.mapWrap}>
+              <iframe
+                title="Britto Associates Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4923364327626!2d77.6276!3d13.0113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17163fb0cfd3%3A0x7a6b93e7cd36aa0!2sLingarajapuram%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                style={{ border: 0, borderRadius: '12px' }}
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- WHATSAPP WIDGET ---------------- */}
+      <WhatsAppWidget />
+    </>
+  );
+}

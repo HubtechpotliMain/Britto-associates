@@ -1,0 +1,205 @@
+.footer {
+  background:#0f1724;
+  color:#fff;
+  padding:48px 0 28px;
+}
+
+.inner { 
+  max-width:1200px; 
+  margin:0 auto; 
+  padding:0 20px; 
+}
+
+.topGrid { 
+  display:grid; 
+  grid-template-columns:1fr; 
+  gap:20px; 
+}
+
+@media(min-width:768px){ 
+  .topGrid { grid-template-columns: repeat(4,1fr); } 
+}
+
+.col h3 { 
+  color:#fbbf24; 
+  margin-bottom:12px; 
+}
+
+.col p { 
+  color:#cbd5e1; 
+}
+
+.col { 
+  display:flex; 
+  flex-direction:column; 
+  gap:8px; 
+}
+
+.brandRow { 
+  display:flex; 
+  align-items:center; 
+  gap:12px; 
+  margin-bottom:8px; 
+}
+
+/* BRAND ICON (FOR LUCIDE) */
+.brandBox { 
+  width:40px; 
+  height:40px; 
+  border-radius:12px; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  background: linear-gradient(135deg,#dc2626,#fbbf24); 
+}
+
+.brandTitle { 
+  font-weight:700; 
+}
+
+.brandSub { 
+  font-size:12px; 
+  color:#94a3b8; 
+}
+
+/* ---------- COMPANY LOGO BOX (ADDED) ---------- */
+.brandLogoBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.brandLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ----------------------------------------------- */
+
+.linkList { 
+  list-style:none; 
+  padding:0; 
+  margin:0; 
+  display:grid; 
+  gap:8px; 
+}
+
+.linkItem { 
+  color:#cbd5e1; 
+  text-decoration:none; 
+}
+
+.linkItem:hover {
+  color:#fbbf24;
+}
+
+.wifiIcon { 
+  color:#fff; 
+}
+
+.contactList { 
+  list-style:none; 
+  padding:0; 
+  margin:0; 
+  display:grid; 
+  gap:10px; 
+}
+
+.contactItem { 
+  display:flex; 
+  gap:8px; 
+  align-items:center; 
+}
+
+.contactText { 
+  font-size:14px; 
+}
+
+.bottomBar { 
+  border-top:1px solid rgba(255,255,255,0.06); 
+  margin-top:24px; 
+  padding-top:18px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  gap:12px; 
+}
+
+.socials { 
+  display:flex; 
+  gap:8px; 
+}
+
+.socialBtn { 
+  width:36px; 
+  height:36px; 
+  border-radius:999px; 
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center; 
+  background:#111827; 
+  color:#fff; 
+  text-decoration:none; 
+  transition:0.3s ease;
+}
+
+.socialBtn:hover {
+  background:#1e293b;
+  transform: scale(1.05);
+}
+
+/* ⭐⭐⭐ TECHPOTLI BRANDING SECTION ⭐⭐⭐ */
+
+.techpotli {
+  text-align: center;
+  padding-top: 22px;
+  margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  color: #94a3b8;
+}
+
+.techpotli p {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.logoLink {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.logoLink:hover .logo {
+  opacity: 1;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
