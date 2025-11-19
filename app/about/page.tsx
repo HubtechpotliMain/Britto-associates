@@ -192,75 +192,6 @@ export default function About() {
           </blockquote>
         </div>
 
-        {/* Mission & Vision Tabs */}
-        <div className={`${styles.section} ${isVisible ? styles.animateIn : ''}`}>
-          <h2 className={styles.heading}>
-            <span className={styles.headingIcon}>🎯</span>
-            Our Purpose
-          </h2>
-          
-          <div className={styles.tabs}>
-            <button 
-              className={`${styles.tab} ${activeTab === "mission" ? styles.active : ''}`}
-              onClick={() => setActiveTab("mission")}
-            >
-              Mission
-            </button>
-            <button 
-              className={`${styles.tab} ${activeTab === "vision" ? styles.active : ''}`}
-              onClick={() => setActiveTab("vision")}
-            >
-              Vision
-            </button>
-            <button 
-              className={`${styles.tab} ${activeTab === "values" ? styles.active : ''}`}
-              onClick={() => setActiveTab("values")}
-            >
-              Values
-            </button>
-          </div>
-
-          <div className={styles.tabContent}>
-            {activeTab === "mission" && (
-              <div className={styles.missionContent}>
-                <h3>Our Mission</h3>
-                <ul className={styles.list}>
-                  <li>Empower youth through education & job support.</li>
-                  <li>Deliver transparent, honest and ethical services.</li>
-                  <li>Uplift society with humanitarian initiatives.</li>
-                  <li>Make real estate simple, safe & accessible.</li>
-                  <li>Bridge the gap between education and employment.</li>
-                </ul>
-              </div>
-            )}
-
-            {activeTab === "vision" && (
-              <div className={styles.visionContent}>
-                <h3>Our Vision</h3>
-                <p className={styles.text}>
-                  To create a society where every individual has access to quality education, 
-                  meaningful employment, safe housing, and legal support — all delivered with 
-                  integrity and social responsibility.
-                </p>
-              </div>
-            )}
-
-            {activeTab === "values" && (
-              <div className={styles.valuesContent}>
-                <h3>Our Core Values</h3>
-                <div className={styles.valuesGrid}>
-                  {values.map((value, index) => (
-                    <div key={value.title} className={styles.valueCard}>
-                      <div className={styles.valueIcon}>{value.icon}</div>
-                      <h4>{value.title}</h4>
-                      <p>{value.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
 
         {/* Certifications */}
         <div className={`${styles.section} ${isVisible ? styles.animateIn : ''}`}>
@@ -298,6 +229,45 @@ export default function About() {
             </div>
           </div>
         </div>
+        {/* Online Media Section */}
+      <div className={`${styles.section} ${isVisible ? styles.animateIn : ''}`}>
+  <h2 className={styles.heading}>
+    <span className={styles.headingIcon}>📰</span>
+    Online Media Coverage
+  </h2>
+
+  <p className={styles.subtext}>
+    BRITTO ASSOCIATES is covered by multiple national online media platforms.
+  </p>
+
+  <div className={styles.valuesGrid}>
+    {[
+      { title: "Bharat Darpan News", url: "https://bharatdarpannews.com/britto-honored-with-national-awards/" },
+      { title: "Newspress", url: "https://newspress.co.in/britto-associates/" },
+      { title: "Hind News Network", url: "https://hindnewsnetwork.in/britto-associates/" },
+      { title: "Live News Today", url: "https://livenewstoday.in/britto-associates/" },
+      { title: "Indian News Portal", url: "https://indiannewsportal.com/bangalore-based-britto-associates/" },
+      { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
+      { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
+      { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
+      { title: "E India News", url: "https://eindianews.com/britto-associates/" }
+    ].map((item, index) => (
+      <a
+        key={index}
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.valueCard}
+        style={{ cursor: "pointer", textDecoration: "none" }}
+      >
+        <div className={styles.valueIcon}>🔗</div>
+        <h4>{item.title}</h4>
+        <p>Read Full Article →</p>
+      </a>
+    ))}
+  </div>
+</div>
+
 
         {/* Call to Action */}
         <div className={`${styles.ctaSection} ${isVisible ? styles.animateIn : ''}`}>

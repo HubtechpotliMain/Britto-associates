@@ -44,4 +44,42 @@ export const galleryItems: GalleryItem[] = [
 
   // Legal / Consulting
   { id: "property-legal", src: "/images/gallery/property-legal-consult.jpg", alt: "Legal consult", category: "Legal", caption: "Property legal consultation" },
+
+  // -----------------------------------------
+  // ⭐ NEWLY ADDED 21 IMAGES
+  // -----------------------------------------
+
+  // Attestation / Certificate
+  { id: "attestation-banner", src: "/images/gallery/attestation-services-banner.jpg", alt: "Attestation Services", category: "Brand", caption: "Fastest attestation services" },
+  { id: "online-certificate-logo", src: "/images/gallery/online-certificate-logo.jpg", alt: "Online Certificate Logo", category: "Education", caption: "Online certificate support" },
+
+  // Pets / Animal Care
+  { id: "pet-dog-forest", src: "/images/gallery/pet-dog-forest.jpg", alt: "Dog in forest", category: "Activism", caption: "Pet & animal welfare" },
+  { id: "dog-feeding", src: "/images/gallery/animal-welfare-dog-feeding.jpg", alt: "Dog Feeding", category: "Activism", caption: "Helping street dogs" },
+
+  // IT / Job Assistance Extra
+  { id: "it-banner", src: "/images/gallery/it-job-assistance-banner.jpg", alt: "IT Jobs Banner", category: "IT Jobs", caption: "IT Job support banner" },
+  { id: "job-assist-badge", src: "/images/gallery/job-assistance-badge.jpg", alt: "Job Assistance Badge", category: "IT Jobs", caption: "100% job assistance" },
+
+  // Legal
+  { id: "legal-doc-office", src: "/images/gallery/legal-documentation-office.jpg", alt: "Legal documentation", category: "Legal", caption: "Legal paperwork office" },
+  { id: "legal-writing", src: "/images/gallery/legal-assistance-lawyer-writing.jpg", alt: "Lawyer writing", category: "Legal", caption: "Legal assistance process" },
+  { id: "legal-poster", src: "/images/gallery/legal-documentation-service-poster.jpg", alt: "Legal Documentation Poster", category: "Legal", caption: "Documentation service" },
+  { id: "legal-counsel", src: "/images/gallery/legal-counsel-banner.jpg", alt: "Legal Counsel", category: "Legal", caption: "Legal counsel service" },
+
+  // Office Interiors
+  { id: "office-reception", src: "/images/gallery/office-reception-woman.jpg", alt: "Office Reception", category: "Brand", caption: "Office reception area" },
+  { id: "meeting-room", src: "/images/gallery/conference-room-interior.jpg", alt: "Conference Room", category: "Brand", caption: "Conference meeting setup" },
+  { id: "modern-office", src: "/images/gallery/modern-office-interior.jpg", alt: "Modern Office", category: "Brand", caption: "Modern interior office" },
+
+  // Real Estate / Rent / RERA
+  { id: "rental-management", src: "/images/gallery/rental-property-management-poster.jpg", alt: "Rental Property Management", category: "Real Estate", caption: "Tenant & rent management" },
+  { id: "rera-registration", src: "/images/gallery/rera-registration-banner.jpg", alt: "RERA Registration", category: "Real Estate", caption: "Real estate RERA help" },
+
+  // Education Loan / Business Loan
+  { id: "edu-loan", src: "/images/gallery/education-loan-assistance.jpg", alt: "Education Loan", category: "Education", caption: "Education loan assistance" },
+  { id: "business-loan", src: "/images/gallery/business-loan-support.jpg", alt: "Business Loan Support", category: "Business", caption: "Business loan consultation" },
+
+  // Social Activism
+  { id: "women-rights", src: "/images/gallery/women-rights-human-rights.jpg", alt: "Women Rights", category: "Activism", caption: "Women's rights activism" },
 ];

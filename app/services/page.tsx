@@ -35,44 +35,76 @@ export default function Services() {
 
   const services = [
     {
-      title: "Real Estate",
-      description: "Buy/sell land, apartments, villas, and farmland with full legal clarity.",
-      icon: "🏠",
-      category: "business",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      features: ["Property Consulting", "Legal Documentation", "Site Visits", "Investment Guidance"]
-    },
-    {
-      title: "Education Consultancy", 
-      description: "Guiding students into top institutions across India.",
+      title: "Education Consultancy",
+      description: "College admissions & education bank loan assistance for students.",
       icon: "🎓",
       category: "education",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-      features: ["Career Counseling", "University Admissions", "Scholarship Guidance", "Documentation"]
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      features: ["College Admission", "Education Bank Loan", "Career Counseling", "University Guidance"]
     },
     {
-      title: "IT Job Assistance",
-      description: "Connect to genuine IT jobs with skill-building guidance.",
+      title: "IT Job Assistance", 
+      description: "Professional IT job placement and career guidance services.",
       icon: "💼",
       category: "career",
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-      features: ["Resume Building", "Interview Prep", "Skill Training", "Job Placement"]
+      features: ["Job Placement", "Resume Building", "Interview Preparation", "Career Guidance"]
     },
     {
-      title: "Social Activism",
-      description: "Human rights, animal welfare, environment protection.",
-      icon: "🌿",
-      category: "social",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      features: ["Community Programs", "Awareness Campaigns", "Legal Aid", "Volunteer Support"]
-    },
-    {
-      title: "Legal Consulting",
-      description: "Document verification, agreements, registrations & support.",
+      title: "Legal Assistance",
+      description: "All types of legal documentation assistance (LDA) and support.",
       icon: "⚖️",
       category: "legal",
       gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-      features: ["Document Review", "Legal Agreements", "Registration Support", "Compliance"]
+      features: ["Legal Documentation", "Document Verification", "Agreements", "Registration Support"]
+    },
+    {
+      title: "Business Management",
+      description: "All types of company registration and business setup services.",
+      icon: "🏢",
+      category: "business",
+      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      features: ["Company Registration", "Business Setup", "Compliance", "Documentation"]
+    },
+    {
+      title: "Business Bank Loan",
+      description: "Professional support in securing business loans from banks.",
+      icon: "💰",
+      category: "finance",
+      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
+      features: ["Loan Application", "Financial Evaluation", "Bank Coordination", "Document Preparation"]
+    },
+    {
+      title: "Real Estate",
+      description: "Buying & selling of apartments, villas, plots, residential & farm land.",
+      icon: "🏠",
+      category: "realestate",
+      gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      features: ["Property Buying/Selling", "Site Visits", "Legal Clarity", "Investment Guidance"]
+    },
+    {
+      title: "Rental Property Management",
+      description: "Complete residential property management services.",
+      icon: "🔑",
+      category: "realestate",
+      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+      features: ["Tenant Screening", "Rent Collection", "Property Inspection", "Legal Compliance"]
+    },
+    {
+      title: "RERA Registration",
+      description: "Professional RERA registration services for real estate projects.",
+      icon: "📋",
+      category: "legal",
+      gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
+      features: ["RERA Compliance", "Project Registration", "Documentation", "Legal Support"]
+    },
+    {
+      title: "Social Activism",
+      description: "Human rights, animal welfare, and environment protection initiatives.",
+      icon: "🌿",
+      category: "social",
+      gradient: "linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%)",
+      features: ["Community Programs", "Awareness Campaigns", "Legal Aid", "Volunteer Support"]
     }
   ];
 
@@ -83,11 +115,13 @@ export default function Services() {
   // Stats for the filter
   const serviceStats = {
     all: services.length,
-    business: services.filter(s => s.category === "business").length,
     education: services.filter(s => s.category === "education").length,
     career: services.filter(s => s.category === "career").length,
-    social: services.filter(s => s.category === "social").length,
-    legal: services.filter(s => s.category === "legal").length
+    legal: services.filter(s => s.category === "legal").length,
+    business: services.filter(s => s.category === "business").length,
+    finance: services.filter(s => s.category === "finance").length,
+    realestate: services.filter(s => s.category === "realestate").length,
+    social: services.filter(s => s.category === "social").length
   };
 
   // WhatsApp functions
@@ -127,7 +161,7 @@ export default function Services() {
     <>
       <Hero
         title="Our Professional Services"
-        subtitle="Providing excellence across Real Estate, Education, IT Jobs & Legal Support with trusted expertise and social impact."
+        subtitle="Providing excellence across Education, IT Jobs, Legal Support, Business Management, Real Estate & Social Activism with trusted expertise."
         button1="Get Free Consultation"
         button1Link="#cta"
         button2="View Gallery"
@@ -140,7 +174,7 @@ export default function Services() {
         <div className="container">
           <div className={styles.statsGrid}>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>5+</span>
+              <span className={styles.statNumber}>9+</span>
               <span className={styles.statText}>Service Domains</span>
             </div>
             <div className={styles.statItem}>
@@ -165,14 +199,17 @@ export default function Services() {
             Our Comprehensive Services
           </h2>
           <p className={`${styles.subheading} ${isVisible ? styles.animateSubheading : ''}`}>
-            Tailored solutions for your real estate, education, career, and legal needs
+            Tailored solutions for your education, career, legal, business, and real estate needs
           </p>
         </div>
 
         {/* Enhanced Filter Tabs */}
         <div className={styles.filterContainer}>
           <div className={styles.filterTabs}>
-            {["all", "business", "education", "career", "social", "legal"].map(category => (
+            {[
+              "all", "education", "career", "legal", 
+              "business", "finance", "realestate", "social"
+            ].map(category => (
               <button
                 key={category}
                 className={`${styles.filterBtn} ${activeFilter === category ? styles.active : ''}`}
@@ -180,7 +217,13 @@ export default function Services() {
               >
                 <span className={styles.filterText}>
                   {category === "all" ? "All Services" : 
-                   category === "business" ? "Real Estate" : 
+                   category === "education" ? "Education" :
+                   category === "career" ? "IT Jobs" :
+                   category === "legal" ? "Legal Assistance" :
+                   category === "business" ? "Business Management" :
+                   category === "finance" ? "Business Loans" :
+                   category === "realestate" ? "Real Estate" :
+                   category === "social" ? "Social Activism" :
                    category.charAt(0).toUpperCase() + category.slice(1)}
                 </span>
                 <span className={styles.filterCount}>({serviceStats[category as keyof typeof serviceStats]})</span>
@@ -232,6 +275,7 @@ export default function Services() {
                 <span>✓ Free Consultation</span>
                 <span>✓ No Hidden Charges</span>
                 <span>✓ 100% Transparent</span>
+                <span>✓ Expert Guidance</span>
               </div>
             </div>
             <div className={styles.ctaButtons}>

@@ -37,39 +37,63 @@ export default function Home() {
 
   const services = [
     {
-      title: "Real Estate",
-      description: "Land, plots, villas, apartments, farmland — guided ethically with trust.",
-      icon: "🏡",
+      title: "Education Consultancy",
+      description: "College admissions & education bank loan assistance for students.",
+      icon: "🎓",
       gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
-      title: "Education Consultancy",
-      description: "Helping students choose colleges & courses to build strong futures.",
-      icon: "🎓",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
-    },
-    {
-      title: "IT Job Assistance",
-      description: "Skill guidance + job placement support in the IT sector.",
+      title: "IT Job Assistance", 
+      description: "Professional IT job placement and career guidance services.",
       icon: "💼",
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
     {
-      title: "Social Activism",
-      description: "Human rights, child education, animal welfare & community support.",
-      icon: "🌍",
+      title: "Legal Assistance",
+      description: "All types of legal documentation assistance (LDA) and support.",
+      icon: "⚖️",
+      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+    },
+    {
+      title: "Business Management",
+      description: "All types of company registration and business setup services.",
+      icon: "🏢",
       gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
     },
     {
-      title: "Legal Consulting",
-      description: "Legal clarity & support for documentation, registration & formalities.",
-      icon: "⚖️",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      title: "Business Bank Loan",
+      description: "Professional support in securing business loans from banks.",
+      icon: "💰",
+      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+    },
+    {
+      title: "Real Estate",
+      description: "Buying & selling of apartments, villas, plots, residential & farm land.",
+      icon: "🏠",
+      gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+    },
+    {
+      title: "Rental Property Management",
+      description: "Complete residential property management services.",
+      icon: "🔑",
+      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)"
+    },
+    {
+      title: "RERA Registration",
+      description: "Professional RERA registration services for real estate projects.",
+      icon: "📋",
+      gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)"
+    },
+    {
+      title: "Social Activism",
+      description: "Human rights, animal welfare, and environment protection initiatives.",
+      icon: "🌿",
+      gradient: "linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%)"
     }
   ];
 
   const stats = [
-    { number: "5+", label: "Service Domains" },
+    { number: "9+", label: "Service Domains" },
     { number: "1000+", label: "Happy Clients" },
     { number: "10+", label: "Years Experience" },
     { number: "50+", label: "Projects Done" }
@@ -104,6 +128,26 @@ export default function Home() {
     }
   ];
 
+  // Online Media Coverage data
+  const mediaCoverage = [
+    { title: "Bharat Darpan News", url: "https://bharatdarpannews.com/britto-honored-with-national-awards/" },
+    { title: "Newspress", url: "https://newspress.co.in/britto-associates/" },
+    { title: "Hind News Network", url: "https://hindnewsnetwork.in/britto-associates/" },
+    { title: "Live News Today", url: "https://livenewstoday.in/britto-associates/" },
+    { title: "Indian News Portal", url: "https://indiannewsportal.com/bangalore-based-britto-associates/" },
+    { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
+    { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
+    { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
+    { title: "E India News", url: "https://eindianews.com/britto-associates/" }
+  ];
+
+  // Helper function for media logos
+  const getMediaLogo = (title: string) => {
+    const words = title.split(' ');
+    if (words.length === 1) return words[0].substring(0, 2).toUpperCase();
+    return words.map(word => word[0]).join('').substring(0, 3).toUpperCase();
+  };
+
   // WhatsApp functions
   const openWhatsApp = (service = "") => {
     const phoneNumber = "919739950153";
@@ -133,7 +177,7 @@ export default function Home() {
     <>
       <Hero
         title="Driving Growth, Education & Social Impact from Bangalore"
-        subtitle="BRITTO ASSOCIATES works across Real Estate, Education, IT Jobs, Legal Services & Social Welfare."
+        subtitle="BRITTO ASSOCIATES works across Education, IT Jobs, Legal Services, Business Management, Real Estate & Social Welfare."
         button1="Explore Services"
         button1Link="/services"
         button2="Contact Now"
@@ -163,8 +207,8 @@ export default function Home() {
               <h2 className={styles.aboutTitle}>About BRITTO ASSOCIATES</h2>
               <p className={styles.aboutDescription}>
                 A visionary enterprise recognized under MSME (Govt. of India), led by Mr. Antony John Britto. 
-                We are a multifaceted enterprise based in Bangalore working across Real Estate, Education 
-                Consultancy, IT Job Support, Legal Assistance, and Social Welfare.
+                We are a multifaceted enterprise based in Bangalore working across Education Consultancy, 
+                IT Job Support, Legal Assistance, Business Management, Real Estate, and Social Welfare.
               </p>
               
               <div className={styles.founderSection}>
@@ -211,74 +255,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className={styles.missionSection}>
-        <div className="container">
-          <h2 className={styles.sectionTitle}>Our Purpose & Values</h2>
-          
-          <div className={styles.tabs}>
-            <button 
-              className={`${styles.tab} ${activeTab === "mission" ? styles.active : ''}`}
-              onClick={() => setActiveTab("mission")}
-            >
-              Mission
-            </button>
-            <button 
-              className={`${styles.tab} ${activeTab === "vision" ? styles.active : ''}`}
-              onClick={() => setActiveTab("vision")}
-            >
-              Vision
-            </button>
-            <button 
-              className={`${styles.tab} ${activeTab === "values" ? styles.active : ''}`}
-              onClick={() => setActiveTab("values")}
-            >
-              Values
-            </button>
-          </div>
-
-          <div className={styles.tabContent}>
-            {activeTab === "mission" && (
-              <div className={styles.missionContent}>
-                <h3>Our Mission</h3>
-                <ul className={styles.list}>
-                  <li>Empower youth through education & job support.</li>
-                  <li>Deliver transparent, honest and ethical services.</li>
-                  <li>Uplift society with humanitarian initiatives.</li>
-                  <li>Make real estate simple, safe & accessible.</li>
-                  <li>Bridge the gap between education and employment.</li>
-                </ul>
-              </div>
-            )}
-
-            {activeTab === "vision" && (
-              <div className={styles.visionContent}>
-                <h3>Our Vision</h3>
-                <p>
-                  To create a society where every individual has access to quality education, 
-                  meaningful employment, safe housing, and legal support — all delivered with 
-                  integrity and social responsibility.
-                </p>
-              </div>
-            )}
-
-            {activeTab === "values" && (
-              <div className={styles.valuesContent}>
-                <h3>Our Core Values</h3>
-                <div className={styles.valuesGrid}>
-                  {values.map((value, index) => (
-                    <div key={value.title} className={styles.valueCard}>
-                      <div className={styles.valueIcon}>{value.icon}</div>
-                      <h4>{value.title}</h4>
-                      <p>{value.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section className="container" ref={sectionRef}>
@@ -313,25 +289,50 @@ export default function Home() {
         </div>
 
         {/* Quick CTA */}
-        <div className={`${styles.quickCta} ${isVisible ? styles.animateCta : ''}`}>
-          <div className={styles.ctaContent}>
-            <h3>Ready to Get Started?</h3>
-            <p>Let's discuss how we can help you achieve your goals</p>
-            <div className={styles.ctaButtons}>
-              <button 
-                className={styles.ctaBtnPrimary} 
-                onClick={handleFreeConsultation}
+       
+      </section>
+
+      {/* Online Media Coverage Section */}
+      <section className={styles.mediaSection}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.mediaHeading}>
+              <span className={styles.headingIcon}>📰</span>
+              Online Media Coverage
+            </h2>
+            <p className={styles.mediaSubtext}>
+              BRITTO ASSOCIATES is covered by multiple national online media platforms.
+            </p>
+          </div>
+
+          <div className={styles.mediaGrid}>
+            {mediaCoverage.map((item, index) => (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.mediaCard}
               >
-                <span className={styles.whatsappIcon}>💬</span>
-                Get Free Consultation
-              </button>
-              <button 
-                className={styles.ctaBtnSecondary}
-                onClick={handleViewServices}
-              >
-                View All Services
-              </button>
-            </div>
+                <div className={styles.cardHeader}>
+                  <div className={styles.mediaIcon}>📰</div>
+                  <div className={styles.mediaLogo}>
+                    {getMediaLogo(item.title)}
+                  </div>
+                </div>
+                <div className={styles.cardContent}>
+                  <h4>{item.title}</h4>
+                  <p className={styles.cardDescription}>
+                    Read our feature article on this prominent news platform
+                  </p>
+                  <div className={styles.readMore}>
+                    <span>Read Full Article</span>
+                    <span className={styles.arrow}>→</span>
+                  </div>
+                </div>
+                <div className={styles.cardHoverEffect}></div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
