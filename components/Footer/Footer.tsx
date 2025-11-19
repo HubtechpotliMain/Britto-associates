@@ -55,16 +55,24 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="col">
-            <h3>Our Services</h3>
-            <ul className={styles.linkList}>
-              <li>Real Estate Consulting</li>
-              <li>Education Guidance</li>
-              <li>IT Job Assistance</li>
-              <li>Human Rights Activism</li>
-              <li>Legal Consulting</li>
-            </ul>
-          </div>
+          {/* Services */}
+ {/* Services */}
+ <div className="col">
+  <h3>Our Services</h3>
+  <ul className={styles.linkList}>
+    <li>Education Consultancy</li>
+    <li>IT Job Assistance</li>
+    <li>Legal Assistance</li>
+    <li>Business Management</li>
+    <li>Business Loan Assistance</li>
+    <li>Real Estate Consulting</li>
+    <li>Rental Property Management</li>
+    <li>RERA Registration</li>
+    <li>Social Activism</li>
+  </ul>
+</div>
+
+
 
           {/* Contact */}
           <div className="col">
