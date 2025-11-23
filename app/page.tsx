@@ -40,19 +40,22 @@ export default function Home() {
       title: "Education Consultancy",
       description: "College admissions & education bank loan assistance for students.",
       icon: "🎓",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      image: "/new-img/best-education-consultation-for-college.jpeg"
     },
     {
       title: "IT Job Assistance", 
       description: "Professional IT job placement and career guidance services.",
       icon: "💼",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      image: "/new-img/assistence-in-IT-job.jpeg"
     },
     {
       title: "Legal Assistance",
       description: "All types of legal documentation assistance (LDA) and support.",
       icon: "⚖️",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+      image: "/new-img/legal-doc-service.jpeg"
     },
     {
       title: "Business Management",
@@ -64,13 +67,15 @@ export default function Home() {
       title: "Business Bank Loan",
       description: "Professional support in securing business loans from banks.",
       icon: "💰",
-      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
+      image: "/new-img/education-loan.jpeg"
     },
     {
       title: "Real Estate",
       description: "Buying & selling of apartments, villas, plots, residential & farm land.",
       icon: "🏠",
-      gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+      gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      image: "/new-img/britto-associates-buying-selling-card.jpeg"
     },
     {
       title: "Rental Property Management",
@@ -82,13 +87,15 @@ export default function Home() {
       title: "RERA Registration",
       description: "Professional RERA registration services for real estate projects.",
       icon: "📋",
-      gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)"
+      gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
+      image: "/new-img/britto-associates-reera.jpeg"
     },
     {
       title: "Social Activism",
       description: "Human rights, animal welfare, and environment protection initiatives.",
       icon: "🌿",
-      gradient: "linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%)"
+      gradient: "linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%)",
+      image: "/new-img/britto-associates-for-pets.jpeg"
     }
   ];
 
@@ -100,9 +107,9 @@ export default function Home() {
   ];
 
   const awards = [
-    { title: "Mahatma Gandhi National Pride Award", emoji: "🏅" },
-    { title: "APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆" },
-    { title: "MSME Recognition – Govt. of India", emoji: "🎖️" }
+    { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
+    { title: "APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
+    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME-img.jpeg" }
   ];
 
   const values = [
@@ -213,16 +220,27 @@ export default function Home() {
               
               <div className={styles.founderSection}>
                 <h3>Our Founder</h3>
-                <p>
-                  <strong>Mr. Antony John Britto</strong> is known for his contribution to community welfare, 
-                  education support, human rights & animal rights activism. He strongly believes 
-                  that business should have purpose — not just profit.
-                </p>
-                <div className={styles.founderQualities}>
-                  <span className={styles.quality}>Community Leader</span>
-                  <span className={styles.quality}>Social Activist</span>
-                  <span className={styles.quality}>Entrepreneur</span>
-                  <span className={styles.quality}>Mentor</span>
+                <div className={styles.founderContent}>
+                  <div className={styles.founderImageWrapper}>
+                    <img 
+                      src="/images/founder-smile-event2.jpg" 
+                      alt="Mr. Antony John Britto - Founder of Britto Associates"
+                      className={styles.founderImage}
+                    />
+                  </div>
+                  <div className={styles.founderText}>
+                    <p>
+                      <strong>Mr. Antony John Britto</strong> is known for his contribution to community welfare, 
+                      education support, human rights & animal rights activism. He strongly believes 
+                      that business should have purpose — not just profit.
+                    </p>
+                    <div className={styles.founderQualities}>
+                      <span className={styles.quality}>Community Leader</span>
+                      <span className={styles.quality}>Social Activist</span>
+                      <span className={styles.quality}>Entrepreneur</span>
+                      <span className={styles.quality}>Mentor</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -240,6 +258,7 @@ export default function Home() {
                       title={award.title} 
                       emoji={award.emoji}
                       delay={index * 100}
+                      image={award.image}
                     />
                   </div>
                 ))}
@@ -283,6 +302,7 @@ export default function Home() {
                 gradient={service.gradient}
                 isHovered={hoveredCard === index}
                 index={index}
+                image={service.image}
               />
             </div>
           ))}
@@ -374,7 +394,14 @@ export default function Home() {
                 className={styles.primaryBtn}
                 onClick={handleFreeConsultation}
               >
-                <span className={styles.whatsappIcon}>💬</span>
+                <svg 
+                  className={styles.whatsappIcon}
+                  viewBox="0 0 24 24" 
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
                 Get In Touch
               </button>
               <button 

@@ -4,15 +4,27 @@
   right: 28px;
   background: #25D366;
   color: white;
-  font-size: 32px;
-  padding: 14px 18px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 8px 24px rgba(0, 0, 0, 0.15);
   z-index: 999;
-  transition: 0.25s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .floating:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.22);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5), 0 12px 32px rgba(0, 0, 0, 0.22);
+  background: #20ba5a;
+}
+
+.whatsappIcon {
+  width: 32px;
+  height: 32px;
+  color: white;
+  display: block;
 }

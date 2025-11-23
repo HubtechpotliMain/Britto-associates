@@ -36,6 +36,63 @@
   line-height: 1.6;
 }
 
+.videoSection {
+  margin: 60px 0 40px;
+  padding: 32px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1);
+}
+
+.videoContent {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+}
+
+.videoText h2 {
+  margin: 12px 0;
+  font-size: 32px;
+  color: #312e81;
+}
+
+.videoText p {
+  color: #4338ca;
+  line-height: 1.6;
+}
+
+.videoEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4338ca;
+}
+
+.videoEyebrow::before {
+  content: "▹";
+  font-size: 14px;
+}
+
+.videoWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(67, 56, 202, 0.2);
+  background: #000;
+}
+
+.videoPlayer {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #000;
+}
+
 /* Filter Tabs */
 .filterContainer {
   margin-bottom: 50px;
@@ -223,6 +280,18 @@
     font-size: 16px;
     padding: 0 10px;
   }
+
+  .videoSection {
+    padding: 24px;
+  }
+  
+  .videoText h2 {
+    font-size: 26px;
+  }
+  
+  .videoText p {
+    font-size: 15px;
+  }
   
   .filterContainer {
     position: static;
@@ -266,6 +335,11 @@
   .filterTabs {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .videoSection {
+    margin: 40px 0 20px;
+    padding: 20px;
   }
   
   .filterTab {

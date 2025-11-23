@@ -97,7 +97,13 @@
   text-decoration:none; 
 }
 
-.linkItem:hover {
+.linkItem a {
+  color:#60a5fa;
+  text-decoration:none;
+  transition: color 0.3s ease;
+}
+
+.linkItem a:hover {
   color:#fbbf24;
 }
 
@@ -117,6 +123,16 @@
   display:flex; 
   gap:8px; 
   align-items:center; 
+}
+
+.contactItem a {
+  color:#60a5fa;
+  text-decoration:none;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color:#fbbf24;
 }
 
 .contactText { 

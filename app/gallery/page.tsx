@@ -61,7 +61,7 @@ export default function GalleryPage() {
       <Hero
         title="Our Gallery"
         subtitle="A visual collection of our projects, awards, education activities and social initiatives."
-        bgImage="/images/gallery/real-villa-main.jpg"
+        bgImage="/images/real-villa-main.jpg"
       />
 
       <main className={styles.container}>
@@ -72,6 +72,31 @@ export default function GalleryPage() {
             Click any image to view in full detail.
           </p>
         </header>
+
+        {/* Video highlight */}
+        <section className={`${styles.videoSection} ${isVisible ? styles.animateIn : ''}`}>
+          <div className={styles.videoContent}>
+            <div className={styles.videoText}>
+              <span className={styles.videoEyebrow}>New • 2025</span>
+              <h2>Experience Britto Associates in Motion</h2>
+              <p>
+                Watch a short introduction of our multidisciplinary services, community outreach,
+                and the values that drive us to deliver impact across India.
+              </p>
+            </div>
+            <div className={styles.videoWrapper}>
+              <video
+                className={styles.videoPlayer}
+                controls
+                preload="metadata"
+                poster="/images/britto-associates-banner.jpg"
+              >
+                <source src="/video/intro-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
 
         {/* Filter Tabs */}
         <div className={styles.filterContainer}>

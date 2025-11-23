@@ -386,6 +386,47 @@
   color: #1e293b;
 }
 
+.founderContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .founderContent {
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+  }
+}
+
+.founderImageWrapper {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.founderImageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.founderImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.founderText {
+  display: flex;
+  flex-direction: column;
+}
+
 .founderQualities {
   display: flex;
   flex-wrap: wrap;
@@ -676,7 +717,10 @@
 
 /* WhatsApp Icon */
 .whatsappIcon {
-  font-size: 1.2rem;
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* Mobile Responsive */

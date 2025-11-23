@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Britto Associates Web
 
-## Getting Started
+Marketing site for Britto Associates covering education consultancy, IT job assistance, legal services, real estate, and social impact initiatives. Built with Next.js App Router and custom React components.
 
-First, run the development server:
+### Stack
+
+- Next.js 14 (App Router, TypeScript, CSS Modules)
+- React server/components mix with client-side interactivity
+- Static assets served from `public/images`, `public/new-img`, and `public/video`
+
+### Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) for the live preview. Key routes:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/` – hero, stats, services, media coverage, CTA
+- `/about` – founder story & mission
+- `/services` – detailed service cards
+- `/gallery` – filterable gallery + embedded intro video
+- `/contact` – WhatsApp-first contact form
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Project Structure
 
-## Learn More
+- `app/` – route segments (`about`, `gallery`, `services`, etc.)
+- `components/` – shared UI (Hero, GalleryCard, Navbar, Footer…)
+- `public/` – images, WhatsApp drop-in photos (`/new-img`), intro video (`/video/intro-video.mp4`)
 
-To learn more about Next.js, take a look at the following resources:
+### Content Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Gallery photos are configured in `app/gallery/galleryData.ts`
+- Hero images and copy per page live in their respective `page.tsx`
+- Styles rely on colocated `*.module.css` files
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deployment
 
-## Deploy on Vercel
+1. `npm run build` – ensure build passes
+2. Deploy the `.next` output to any Node-compatible hosting (Vercel recommended)
+3. Keep `public/new-img` and `public/video` in sync if new assets are added
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork / branch
+2. Run lint/tests (if configured)
+3. Submit PR describing UX/content changes, assets touched, and screenshots when visuals change
