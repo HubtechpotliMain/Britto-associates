@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link href="/" onClick={closeMenu} className={styles.logoLink}>
               <div className={styles.logoContainer}>
                 <Image
-                  src="/logo.jpg"
+                  src="/logo/logo.jpg"
                   alt="Britto Associates"
                   width={40}
                   height={40}

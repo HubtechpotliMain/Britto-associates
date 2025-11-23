@@ -19,7 +19,7 @@ export default function Footer() {
               {/* Company Logo */}
               <div className={styles.brandLogoBox}>
                 <img 
-                  src="/logo.jpg" 
+                  src="/logo/logo.jpg" 
                   alt="Britto Associates Logo" 
                   className={styles.brandLogo} 
                 />
@@ -129,7 +129,7 @@ export default function Footer() {
             className={styles.logoLink}
           >
             <img
-              src="/New_Techpotli_Logo.png"
+              src="/logo/New_Techpotli_Logo.png"
               alt="TechPotli"
               className={styles.logo}
             />

@@ -81,6 +81,45 @@
   border-left: 5px solid #3b82f6;
 }
 
+.founderContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .founderContent {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.founderImageWrapper {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.founderImageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.founderImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.founderText {
+  display: flex;
+  flex-direction: column;
+}
+
 .founderQualities {
   display: flex;
   flex-wrap: wrap;
