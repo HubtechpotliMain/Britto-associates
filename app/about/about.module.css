@@ -294,6 +294,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .primaryBtn {
@@ -304,6 +308,13 @@
 .primaryBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+.whatsappIcon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
 }
 
 .secondaryBtn {

@@ -276,6 +276,13 @@
   text-align: left;
 }
 
+.btnIcon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
 .primaryBtn {
   background: white;
   color: #667eea;
