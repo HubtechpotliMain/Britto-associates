@@ -16,8 +16,8 @@ export default function Achievements() {
 
         <div className={styles.grid}>
           <AwardCard title="Mahatma Gandhi National Pride Award" emoji="🏅" image="/images/award-mahatma-gandhi-pride.jpg" />
-          <AwardCard title="APJ Abdul Kalam Bhartiya Ratan Samaan" emoji="🏆" image="/images/kalam-samman-2.jpg" />
-          <AwardCard title="MSME Recognition – Govt. of India" emoji="🎖️" />
+          <AwardCard title="APJ Abdul Kalam Bhartiya Ratan Samaan" emoji="🏆" image="/images/kalam-samman-1.jpg" />
+          <AwardCard title="MSME Recognition – Govt. of India" emoji="🎖️" image="/new-img/MSME-img.jpeg" />
         </div>
 
         <blockquote className={styles.quote}>

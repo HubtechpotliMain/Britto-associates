@@ -22,11 +22,12 @@ export default function AwardCard({ title, emoji, delay = 0, image }: AwardCardP
           <Image 
             src={image} 
             alt={title}
-            width={400}
-            height={280}
+            width={500}
+            height={400}
             className={styles.awardImage}
             unoptimized
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={title.includes("Mahatma Gandhi") || title.includes("APJ Abdul Kalam")}
           />
         </div>
       ) : (
