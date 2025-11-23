@@ -1,6 +1,7 @@
 // components/ServiceCard/ServiceCard.tsx
 "use client";
 
+import Image from "next/image";
 import styles from "./ServiceCard.module.css";
 
 interface ServiceCardProps {
@@ -10,8 +11,9 @@ interface ServiceCardProps {
   gradient?: string;
   isHovered?: boolean;
   index?: number;
-  delay?: number; // Add this line
-    features?: string[];
+  delay?: number;
+  features?: string[];
+  image?: string;
 }
 
 export default function ServiceCard({ 
@@ -21,7 +23,8 @@ export default function ServiceCard({
   gradient,
   isHovered,
   index,
-  delay = 0 // Add this with default value
+  delay = 0,
+  image
 }: ServiceCardProps) {
   return (
     <div 
@@ -29,17 +32,34 @@ export default function ServiceCard({
       style={gradient ? { 
         background: gradient,
         '--hover-glow': gradient,
-        animationDelay: `${delay}ms` // Add this
+        animationDelay: `${delay}ms`
       } as React.CSSProperties : {
-        animationDelay: `${delay}ms` // Add this for non-gradient cards too
+        animationDelay: `${delay}ms`
       }}
       data-index={index}
     >
-      <div className={styles.iconWrapper}>
-        <span className={styles.icon}>{icon}</span>
+      {image ? (
+        <div className={styles.imageWrapper}>
+          <Image 
+            src={image} 
+            alt={title}
+            width={400}
+            height={320}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={styles.serviceImage}
+            unoptimized
+            priority={index !== undefined && index < 3}
+          />
+        </div>
+      ) : (
+        <div className={styles.iconWrapper}>
+          <span className={styles.icon}>{icon}</span>
+        </div>
+      )}
+      <div className={styles.cardContent}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
       </div>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
       <div className={styles.hoverEffect}></div>
     </div>
   );
