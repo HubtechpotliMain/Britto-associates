@@ -143,6 +143,13 @@ export default function About() {
             Our Founder
           </h2>
           <div className={styles.founderContent}>
+            <div className={styles.founderImageWrapper}>
+              <img 
+                src="/images/founder-smile-event2.jpg" 
+                alt="Mr. Antony John Britto - Founder of Britto Associates"
+                className={styles.founderImage}
+              />
+            </div>
             <div className={styles.founderText}>
               <p className={styles.text}>
                 <strong>Mr. Antony John Britto</strong> is known for his contribution to community welfare, 
