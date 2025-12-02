@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import AwardCard from "@/components/AwardCard/AwardCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
+import FounderArticle from "@/components/FounderArticle";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -220,28 +221,7 @@ export default function Home() {
               
               <div className={styles.founderSection}>
                 <h3>Our Founder</h3>
-                <div className={styles.founderContent}>
-                  <div className={styles.founderImageWrapper}>
-                    <img 
-                      src="/images/founder-smile-event2.jpg" 
-                      alt="Mr. Antony John Britto - Founder of Britto Associates"
-                      className={styles.founderImage}
-                    />
-                  </div>
-                  <div className={styles.founderText}>
-                    <p>
-                      <strong>Mr. Antony John Britto</strong> is known for his contribution to community welfare, 
-                      education support, human rights & animal rights activism. He strongly believes 
-                      that business should have purpose — not just profit.
-                    </p>
-                    <div className={styles.founderQualities}>
-                      <span className={styles.quality}>Community Leader</span>
-                      <span className={styles.quality}>Social Activist</span>
-                      <span className={styles.quality}>Entrepreneur</span>
-                      <span className={styles.quality}>Mentor</span>
-                    </div>
-                  </div>
-                </div>
+                <FounderArticle />
               </div>
             </div>
             
