@@ -65,7 +65,7 @@ export default function About() {
   const awards = [
     { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
     { title: "APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
-    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME-img.jpeg" }
+    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME.jpeg" }
   ];
 
   // WhatsApp functions

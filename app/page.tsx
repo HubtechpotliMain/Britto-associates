@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
@@ -344,17 +345,41 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Certifications & Recognition</h2>
           <div className={styles.certifications}>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>🏅</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/iso.jpeg" 
+                  alt="ISO 9001:2005 Certification"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>ISO 9001:2005 (USA)</h3>
               <p>Quality Management System Certified</p>
             </div>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>🇮🇳</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/MSME.jpeg" 
+                  alt="MSME Registration"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>MSME Registered</h3>
               <p>Government of India</p>
             </div>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>📊</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/GST.jpeg" 
+                  alt="GST Registration"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>GST Registered</h3>
               <p>GST: 29BAGPB4125E2Z4</p>
             </div>
