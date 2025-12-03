@@ -85,7 +85,7 @@ export default function Services() {
       category: "realestate",
       gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
       features: ["Property Buying/Selling", "Site Visits", "Legal Clarity", "Investment Guidance"],
-      image: "/new-img/britto-associates-buying-selling-card.jpeg"
+      image: "/new-img/real-state.jpeg"
     },
     {
       title: "Rental Property Management",
@@ -93,7 +93,8 @@ export default function Services() {
       icon: "🔑",
       category: "realestate",
       gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
-      features: ["Tenant Screening", "Rent Collection", "Property Inspection", "Legal Compliance"]
+      features: ["Tenant Screening", "Rent Collection", "Property Inspection", "Legal Compliance"],
+      image: "/new-img/rental-property.jpeg"
     },
     {
       title: "RERA Registration",
@@ -102,7 +103,7 @@ export default function Services() {
       category: "legal",
       gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
       features: ["RERA Compliance", "Project Registration", "Documentation", "Legal Support"],
-      image: "/new-img/britto-associates-reera.jpeg"
+      image: "/new-img/reera-registration.jpeg"
     },
     {
       title: "Social Activism",
