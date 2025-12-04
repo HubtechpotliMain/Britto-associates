@@ -391,6 +391,43 @@ export default function Services() {
           </div>
         )}
 
+        {/* IT Jobs Images Grid - Only show when career filter is active */}
+        {activeFilter === "career" && (
+          <div className={styles.educationImagesSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>IT JOB ASSISTANCE & PLACEMENT SUPPORT</h3>
+              <p className={styles.educationImagesSubtitle}>
+                Get placed in top IT companies with our comprehensive job assistance program. We provide end-to-end support from training to placement.
+              </p>
+            </div>
+
+            {/* IT Jobs Images Grid */}
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>Our IT Job Placement Success Stories</h3>
+              <p className={styles.educationImagesSubtitle}>We have successfully placed candidates in leading IT companies</p>
+            </div>
+            <div className={styles.educationImagesGrid}>
+              {[
+                "/it-jobs/it-jobs.jpeg",
+                "/it-jobs/it-jobs2.jpeg", 
+                "/it-jobs/it-jobs3.jpeg",
+                "/it-jobs/it-jobs4.jpeg"
+              ].map((image, index) => (
+                <div key={index} className={styles.educationImageCard}>
+                  <Image
+                    src={image}
+                    alt={`IT job placement ${index + 1}`}
+                    width={200}
+                    height={150}
+                    className={styles.educationImage}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Empty State */}
         {filteredServices.length === 0 && (
           <div className={styles.emptyState}>
