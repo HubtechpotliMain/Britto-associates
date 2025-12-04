@@ -74,7 +74,7 @@ export default function Home() {
       description: "Professional support in securing business loans from banks.",
       icon: "💰",
       gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
-      image: "/new-img/education-loan.jpeg"
+      image: "/new-img/business-bank-loan.jpeg"
     },
     {
       title: "Real Estate",

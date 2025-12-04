@@ -80,7 +80,7 @@ export default function Services() {
       category: "finance",
       gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
       features: ["Loan Application", "Financial Evaluation", "Bank Coordination", "Document Preparation"],
-      image: "/new-img/education-loan.jpeg"
+      image: "/new-img/business-bank-loan.jpeg"
     },
     {
       title: "Real Estate",
