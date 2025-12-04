@@ -110,7 +110,8 @@ export default function Home() {
 
   const awards = [
     { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
-    { title: "Dr. APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" }
+    { title: "Dr. APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
+    { title: "Mahatma Gandhi Pride Medal", emoji: "🎖️", image: "/new-img/mahatma-gandhi-pride-medal.jpeg" }
   ];
 
   const values = [
