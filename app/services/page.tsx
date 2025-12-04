@@ -67,7 +67,11 @@ export default function Services() {
       icon: "🏢",
       category: "business",
       gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      features: ["Company Registration", "Business Setup", "Compliance", "Documentation"]
+      features: ["Company Registration", "Business Setup", "Compliance", "Documentation"],
+      image: [
+        "/new-img/Business Management-2.jpeg",
+        "/new-img/Business Management.jpeg"
+      ]
     },
     {
       title: "Business Bank Loan",

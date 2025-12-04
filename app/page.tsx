@@ -64,7 +64,10 @@ export default function Home() {
       description: "All types of company registration and business setup services.",
       icon: "🏢",
       gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      image: "/new-img/Business Management-2.jpeg"
+      image: [
+        "/new-img/Business Management-2.jpeg",
+        "/new-img/Business Management.jpeg"
+      ]
     },
     {
       title: "Business Bank Loan",
