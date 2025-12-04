@@ -293,6 +293,84 @@ export default function Services() {
         {activeFilter === "education" && (
           <div className={styles.educationImagesSection}>
             <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>FREE CONSULTATION AND ADMISSION GUIDANCE</h3>
+              <p className={styles.educationImagesSubtitle}>
+                Students book your seats for your higher studies in reputed colleges online or regular with nominal fees. If required education bank loans will be provided.
+              </p>
+            </div>
+
+            {/* Courses Offered */}
+            <div className={styles.coursesSection}>
+              <h4 className={styles.coursesTitle}>Courses Offered</h4>
+              <div className={styles.coursesGrid}>
+                <div className={styles.courseCategory}>
+                  <h5>Undergraduate & Postgraduate Programs</h5>
+                  <ul>
+                    <li>Ph.D</li>
+                    <li>BBA</li>
+                    <li>MBA</li>
+                    <li>MSC</li>
+                    <li>BA</li>
+                    <li>BCOM</li>
+                    <li>BSC</li>
+                  </ul>
+                </div>
+                <div className={styles.courseCategory}>
+                  <h5>Professional & Specialized Courses</h5>
+                  <ul>
+                    <li>ENGINEERING</li>
+                    <li>LAW</li>
+                    <li>MEDICAL RADIOLOGY</li>
+                    <li>ANESTHESIA & OT TECH</li>
+                    <li>PHYSIOTHERAPY</li>
+                    <li>MANAGEMENT</li>
+                    <li>EDUCATION</li>
+                    <li>PARAMEDICAL</li>
+                    <li>HOSPITAL ADMINISTRATION</li>
+                    <li>INDUSTRIAL TRAINING</li>
+                  </ul>
+                </div>
+                <div className={styles.courseCategory}>
+                  <h5>Special Programs</h5>
+                  <ul>
+                    <li>UNCOMPLETED EDUCATION FINISH EDUCATION WHILE WORKING</li>
+                    <li>Admission in colleges Free counseling & guidance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Partner Institutions */}
+            <div className={styles.partnersListSection}>
+              <h4 className={styles.partnersListTitle}>ADMISSION PARTNERS</h4>
+              <div className={styles.partnersList}>
+                <ol>
+                  <li>Manipal university Jaipur & Manipal</li>
+                  <li>Annamalai university Tamilnadu</li>
+                  <li>C M R college Bangalore</li>
+                  <li>Jain College Bangalore</li>
+                  <li>Nova Academy of rural education and research Tamilnadu</li>
+                  <li>Technogloble IT Solution pvt Ltd (Academy for IT skilling India, Canada, UK, UAE) Bangalore</li>
+                  <li>Virohan health care institution Bangalore</li>
+                  <li>DR.MGR University Tamil nadu</li>
+                  <li>IALM (Institute of Law And Management) New Delhi</li>
+                  <li>Amity BANGALORE</li>
+                  <li>Alpha</li>
+                  <li>NMIMS</li>
+                  <li>ARYAN GROUP OF COLLEGES</li>
+                  <li>CMR UNIVERSITY BANGALORE</li>
+                  <li>CHRIST UNIVERSITY</li>
+                  <li>ST.JOSEPH'S UNIVERSITY</li>
+                  <li>ARUNACHAL UNIVERSITY</li>
+                  <li>NORTH EAST CHRISTIAN UNIVERSITY</li>
+                  <li>CV RAMAN UNIVERSITY</li>
+                  <li>INDO ASIAN ACADEMY DEGREE COLLEGE</li>
+                </ol>
+              </div>
+            </div>
+
+            {/* Education Images Grid */}
+            <div className={styles.sectionHeader}>
               <h3 className={styles.educationImagesTitle}>Our Education Partners & Institutions</h3>
               <p className={styles.educationImagesSubtitle}>We partner with leading educational institutions across India</p>
             </div>
