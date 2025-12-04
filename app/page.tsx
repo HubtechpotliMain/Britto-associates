@@ -63,7 +63,8 @@ export default function Home() {
       title: "Business Management",
       description: "All types of company registration and business setup services.",
       icon: "🏢",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      image: "/new-img/Business Management-2.jpeg"
     },
     {
       title: "Business Bank Loan",
@@ -77,20 +78,21 @@ export default function Home() {
       description: "Buying & selling of apartments, villas, plots, residential & farm land.",
       icon: "🏠",
       gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-      image: "/new-img/britto-associates-buying-selling-card.jpeg"
+      image: "/new-img/real-state.jpeg"
     },
     {
       title: "Rental Property Management",
       description: "Complete residential property management services.",
       icon: "🔑",
-      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)"
+      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+      image: "/new-img/rental-property.jpeg"
     },
     {
       title: "RERA Registration",
       description: "Professional RERA registration services for real estate projects.",
       icon: "📋",
       gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
-      image: "/new-img/britto-associates-reera.jpeg"
+      image: "/new-img/reera-registration.jpeg"
     },
     {
       title: "Social Activism",
