@@ -59,7 +59,7 @@ export default function Services() {
       category: "legal",
       gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
       features: ["Legal Documentation", "Document Verification", "Agreements", "Registration Support"],
-      image: "/new-img/legal-doc-service.jpeg"
+      image: "/new-img/legal-assistence.jpeg"
     },
     {
       title: "Business Management",

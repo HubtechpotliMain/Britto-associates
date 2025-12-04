@@ -57,7 +57,7 @@ export default function Home() {
       description: "All types of legal documentation assistance (LDA) and support.",
       icon: "⚖️",
       gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-      image: "/new-img/legal-doc-service.jpeg"
+      image: "/new-img/legal-assistence.jpeg"
     },
     {
       title: "Business Management",
