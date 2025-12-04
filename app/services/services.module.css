@@ -301,7 +301,65 @@
 
 .secondaryBtn:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
+}
+
+/* Education Images Grid Styles */
+.educationImagesSection {
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.educationImagesTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.educationImagesSubtitle {
+  font-size: 16px;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.educationImagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.educationImageCard {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  overflow: hidden;
+}
+
+.educationImageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.educationImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .tertiaryBtn {

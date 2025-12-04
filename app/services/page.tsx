@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
@@ -136,6 +137,25 @@ export default function Services() {
     social: services.filter(s => s.category === "social").length
   };
 
+  // Education images for grid display
+  const educationImages = [
+    "/new-img/best-education-consultation-for-college.jpeg",
+    "/education/alpha-community-college.jpeg",
+    "/education/amity-university.jpeg",
+    "/education/aryan-college.jpeg",
+    "/education/bangalore-university.jpeg",
+    "/education/christ-university.jpeg",
+    "/education/cmru-university.jpeg",
+    "/education/deemed-university.jpeg",
+    "/education/duke-university.jpeg",
+    "/education/dy-patil-university.jpeg",
+    "/education/IIM-kozhikode.jpeg",
+    "/education/jain-university.jpeg",
+    "/education/kristu-jayanti-college.jpeg",
+    "/education/manipal-university.jpeg",
+    "/education/st-joseph's-university.jpeg"
+  ];
+
   // WhatsApp functions
   const openWhatsApp = (service = "", serviceType = "") => {
     const phoneNumber = "919739950153";
@@ -268,6 +288,30 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* Education Images Grid - Only show when education filter is active */}
+        {activeFilter === "education" && (
+          <div className={styles.educationImagesSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>Our Education Partners & Institutions</h3>
+              <p className={styles.educationImagesSubtitle}>We partner with leading educational institutions across India</p>
+            </div>
+            <div className={styles.educationImagesGrid}>
+              {educationImages.map((image, index) => (
+                <div key={index} className={styles.educationImageCard}>
+                  <Image
+                    src={image}
+                    alt={`Education institution ${index + 1}`}
+                    width={200}
+                    height={150}
+                    className={styles.educationImage}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredServices.length === 0 && (
