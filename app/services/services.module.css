@@ -382,6 +382,66 @@
   border-bottom: none;
 }
 
+/* Health Care Assistant Section */
+.healthCareSection {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 40px 0;
+  border: 1px solid #bae6fd;
+}
+
+.healthCareTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0369a1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.healthCareSubtitle {
+  font-size: 18px;
+  color: #0c4a6e;
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.healthCareDescription {
+  font-size: 16px;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.healthCareCta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.healthCareBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.healthCareBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
 /* Partners List Section */
 .partnersListSection {
   margin-bottom: 40px;
