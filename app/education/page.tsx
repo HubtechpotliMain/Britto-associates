@@ -50,6 +50,17 @@ export default function Education() {
     "/education/st-joseph's-university.jpeg"
   ];
 
+  // New banner images for education section
+  const educationBanners = [
+    "/banner/addmission-open.jpeg",
+    "/banner/book-your-seat.jpeg",
+    "/banner/carrer-expo-2026.jpeg",
+    "/banner/direct-selling.jpeg",
+    "/banner/future-with-india-degree-program.jpeg",
+    "/banner/get-enrollment.jpeg",
+    "/banner/trusted-partner-for-service.jpeg"
+  ];
+
   // WhatsApp functions
   const openWhatsApp = (service = "", serviceType = "") => {
     const phoneNumber = "919739950153";
@@ -139,6 +150,36 @@ export default function Education() {
             </div>
           </div>
 
+          {/* Health Care Assistant Course Section */}
+          <div className={styles.healthCareSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.healthCareTitle}>Health Care Assistant Course Admission</h3>
+              <p className={styles.healthCareSubtitle}>
+                Hello! 👋 Thank you for your interest in the Health Care Assistant course admission at CMR College, Bangalore.
+              </p>
+              <p className={styles.healthCareDescription}>
+                We are currently offering admissions with a nominal fee structure and bank loan assistance is available.
+              </p>
+              <p className={styles.healthCareDescription}>
+                For complete details on the course, fees, and to start your application, please visit: 
+                <br />
+                <strong>Website: www.brittoassociates.online</strong>
+              </p>
+              <p className={styles.healthCareDescription}>
+                You can also reply here with your specific questions. We look forward to being your trusted partner.
+              </p>
+              <div className={styles.healthCareCta}>
+                <button 
+                  className={styles.healthCareBtn}
+                  onClick={() => openWhatsApp("Health Care Assistant course", "CMR College Bangalore")}
+                >
+                  <span className={styles.btnIcon}>💬</span>
+                  WhatsApp for FREE REGISTRATION
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Partner Institutions */}
           <div className={styles.partnersListSection}>
             <h3 className={styles.partnersListTitle}>ADMISSION PARTNERS</h3>
@@ -165,6 +206,68 @@ export default function Education() {
                 <li>CV RAMAN UNIVERSITY</li>
                 <li>INDO ASIAN ACADEMY DEGREE COLLEGE</li>
               </ol>
+            </div>
+          </div>
+
+          {/* Education Banner Section */}
+          <div className={styles.bannerSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.bannerTitle}>Latest Education Promotions</h3>
+              <p className={styles.bannerSubtitle}>
+                Explore our current offers and opportunities for students
+              </p>
+            </div>
+            <div className={styles.bannerGrid}>
+              {educationBanners.map((banner, index) => (
+                <div key={index} className={styles.bannerCard}>
+                  <Image
+                    src={banner}
+                    alt={`Education promotion banner ${index + 1}`}
+                    width={300}
+                    height={200}
+                    className={styles.bannerImage}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Video Section */}
+          <div className={styles.videoSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.videoTitle}>Educational Videos</h3>
+              <p className={styles.videoSubtitle}>
+                Watch our informative videos about college admissions and healthcare courses
+              </p>
+            </div>
+            <div className={styles.videoGrid}>
+              <div className={styles.videoCard}>
+                <h4>College Admission Process</h4>
+                <video
+                  className={styles.videoPlayer}
+                  controls
+                  preload="metadata"
+                  poster="/banner/college-banner.jpeg"
+                >
+                  <source src="/video/college-admission.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p>Learn about our comprehensive college admission process and services</p>
+              </div>
+              <div className={styles.videoCard}>
+                <h4>Health Care Assistant Course</h4>
+                <video
+                  className={styles.videoPlayer}
+                  controls
+                  preload="metadata"
+                  poster="/banner/free-consultation-banner.jpeg"
+                >
+                  <source src="/video/health-care-assistent.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p>Discover opportunities in healthcare with our assistant course program</p>
+              </div>
             </div>
           </div>
 

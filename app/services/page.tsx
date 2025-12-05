@@ -340,6 +340,36 @@ export default function Services() {
               </div>
             </div>
 
+            {/* Health Care Assistant Course Section */}
+            <div className={styles.healthCareSection}>
+              <div className={styles.sectionHeader}>
+                <h4 className={styles.healthCareTitle}>Health Care Assistant Course Admission</h4>
+                <p className={styles.healthCareSubtitle}>
+                  Hello! 👋 Thank you for your interest in the Health Care Assistant course admission at CMR College, Bangalore.
+                </p>
+                <p className={styles.healthCareDescription}>
+                  We are currently offering admissions with a nominal fee structure and bank loan assistance is available.
+                </p>
+                <p className={styles.healthCareDescription}>
+                  For complete details on the course, fees, and to start your application, please visit: 
+                  <br />
+                  <strong>Website: www.brittoassociates.online</strong>
+                </p>
+                <p className={styles.healthCareDescription}>
+                  You can also reply here with your specific questions. We look forward to being your trusted partner.
+                </p>
+                <div className={styles.healthCareCta}>
+                  <button 
+                    className={styles.healthCareBtn}
+                    onClick={() => openWhatsApp("Health Care Assistant course", "CMR College Bangalore")}
+                  >
+                    <span className={styles.btnIcon}>💬</span>
+                    WhatsApp for FREE REGISTRATION
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Partner Institutions */}
             <div className={styles.partnersListSection}>
               <h4 className={styles.partnersListTitle}>ADMISSION PARTNERS</h4>
