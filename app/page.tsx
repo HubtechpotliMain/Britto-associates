@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import AwardCard from "@/components/AwardCard/AwardCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
+import FounderArticle from "@/components/FounderArticle";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -55,40 +57,45 @@ export default function Home() {
       description: "All types of legal documentation assistance (LDA) and support.",
       icon: "⚖️",
       gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-      image: "/new-img/legal-doc-service.jpeg"
+      image: "/new-img/legal-assistence.jpeg"
     },
     {
       title: "Business Management",
       description: "All types of company registration and business setup services.",
       icon: "🏢",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      image: [
+        "/new-img/Business Management-2.jpeg",
+        "/new-img/Business Management.jpeg"
+      ]
     },
     {
       title: "Business Bank Loan",
       description: "Professional support in securing business loans from banks.",
       icon: "💰",
       gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
-      image: "/new-img/education-loan.jpeg"
+      image: "/new-img/business-bank-loan.jpeg"
     },
     {
       title: "Real Estate",
       description: "Buying & selling of apartments, villas, plots, residential & farm land.",
       icon: "🏠",
       gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-      image: "/new-img/britto-associates-buying-selling-card.jpeg"
+      image: "/new-img/real-state.jpeg"
     },
     {
       title: "Rental Property Management",
       description: "Complete residential property management services.",
       icon: "🔑",
-      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)"
+      gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+      image: "/new-img/rental-property.jpeg"
     },
     {
       title: "RERA Registration",
       description: "Professional RERA registration services for real estate projects.",
       icon: "📋",
       gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
-      image: "/new-img/britto-associates-reera.jpeg"
+      image: "/new-img/reera-registration.jpeg"
     },
     {
       title: "Social Activism",
@@ -108,8 +115,8 @@ export default function Home() {
 
   const awards = [
     { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
-    { title: "APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
-    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME-img.jpeg" }
+    { title: "Dr. APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
+    { title: "Mahatma Gandhi Pride Medal", emoji: "🎖️", image: "/new-img/mahatma-gandhi-pride-medal.jpeg" }
   ];
 
   const values = [
@@ -220,28 +227,7 @@ export default function Home() {
               
               <div className={styles.founderSection}>
                 <h3>Our Founder</h3>
-                <div className={styles.founderContent}>
-                  <div className={styles.founderImageWrapper}>
-                    <img 
-                      src="/images/founder-smile-event2.jpg" 
-                      alt="Mr. Antony John Britto - Founder of Britto Associates"
-                      className={styles.founderImage}
-                    />
-                  </div>
-                  <div className={styles.founderText}>
-                    <p>
-                      <strong>Mr. Antony John Britto</strong> is known for his contribution to community welfare, 
-                      education support, human rights & animal rights activism. He strongly believes 
-                      that business should have purpose — not just profit.
-                    </p>
-                    <div className={styles.founderQualities}>
-                      <span className={styles.quality}>Community Leader</span>
-                      <span className={styles.quality}>Social Activist</span>
-                      <span className={styles.quality}>Entrepreneur</span>
-                      <span className={styles.quality}>Mentor</span>
-                    </div>
-                  </div>
-                </div>
+                <FounderArticle />
               </div>
             </div>
             
@@ -365,17 +351,41 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Certifications & Recognition</h2>
           <div className={styles.certifications}>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>🏅</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/iso.jpeg" 
+                  alt="ISO 9001:2005 Certification"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>ISO 9001:2005 (USA)</h3>
               <p>Quality Management System Certified</p>
             </div>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>🇮🇳</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/MSME.jpeg" 
+                  alt="MSME Registration"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>MSME Registered</h3>
               <p>Government of India</p>
             </div>
             <div className={styles.certCard}>
-              <div className={styles.certIcon}>📊</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/GST.jpeg" 
+                  alt="GST Registration"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>GST Registered</h3>
               <p>GST: 29BAGPB4125E2Z4</p>
             </div>

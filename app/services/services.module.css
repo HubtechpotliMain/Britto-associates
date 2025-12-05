@@ -301,7 +301,208 @@
 
 .secondaryBtn:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
+}
+
+/* Education Images Grid Styles */
+.educationImagesSection {
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.educationImagesTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.educationImagesSubtitle {
+  font-size: 16px;
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Courses Section */
+.coursesSection {
+  margin-bottom: 40px;
+}
+
+.coursesTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.courseCategory {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.courseCategory h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.courseCategory ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.courseCategory li {
+  padding: 6px 0;
+  color: #475569;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.courseCategory li:last-child {
+  border-bottom: none;
+}
+
+/* Health Care Assistant Section */
+.healthCareSection {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 40px 0;
+  border: 1px solid #bae6fd;
+}
+
+.healthCareTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0369a1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.healthCareSubtitle {
+  font-size: 18px;
+  color: #0c4a6e;
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.healthCareDescription {
+  font-size: 16px;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.healthCareCta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.healthCareBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.healthCareBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Partners List Section */
+.partnersListSection {
+  margin-bottom: 40px;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.partnersListTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.partnersList ol {
+  columns: 2;
+  gap: 25px;
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.partnersList li {
+  padding: 6px 0;
+  color: #475569;
+  font-size: 14px;
+  break-inside: avoid;
+}
+
+.educationImagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.educationImageCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  overflow: hidden;
+}
+
+.educationImageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.educationImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .tertiaryBtn {

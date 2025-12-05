@@ -26,8 +26,17 @@
 
 .icon {
   font-size: 32px;
-  flex-shrink: 0; /* Prevent icon from shrinking */
-  margin-top: 4px; /* Align icon with text */
+  flex-shrink: 0;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .texts {

@@ -13,7 +13,7 @@ interface ServiceCardProps {
   index?: number;
   delay?: number;
   features?: string[];
-  image?: string;
+  image?: string[] | string;
 }
 
 export default function ServiceCard({ 
@@ -26,6 +26,9 @@ export default function ServiceCard({
   delay = 0,
   image
 }: ServiceCardProps) {
+  // Normalize image to array for consistent handling
+  const images = Array.isArray(image) ? image : image ? [image] : [];
+
   return (
     <div 
       className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
@@ -38,18 +41,21 @@ export default function ServiceCard({
       }}
       data-index={index}
     >
-      {image ? (
-        <div className={styles.imageWrapper}>
-          <Image 
-            src={image} 
-            alt={title}
-            width={400}
-            height={320}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={styles.serviceImage}
-            unoptimized
-            priority={index !== undefined && index < 3}
-          />
+      {images.length > 0 ? (
+        <div className={images.length > 1 ? styles.multiImageWrapper : styles.imageWrapper}>
+          {images.map((img, imgIndex) => (
+            <Image 
+              key={imgIndex}
+              src={img} 
+              alt={`${title} ${imgIndex + 1}`}
+              width={images.length > 1 ? 200 : 400}
+              height={images.length > 1 ? 160 : 320}
+              sizes={images.length > 1 ? "(max-width: 768px) 45vw, (max-width: 1200px) 22vw, 16vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+              className={images.length > 1 ? styles.multiServiceImage : styles.serviceImage}
+              unoptimized
+              priority={index !== undefined && index < 3 && imgIndex === 0}
+            />
+          ))}
         </div>
       ) : (
         <div className={styles.iconWrapper}>

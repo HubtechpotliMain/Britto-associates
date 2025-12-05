@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
@@ -59,7 +60,7 @@ export default function Services() {
       category: "legal",
       gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
       features: ["Legal Documentation", "Document Verification", "Agreements", "Registration Support"],
-      image: "/new-img/legal-doc-service.jpeg"
+      image: "/new-img/legal-assistence.jpeg"
     },
     {
       title: "Business Management",
@@ -67,7 +68,11 @@ export default function Services() {
       icon: "🏢",
       category: "business",
       gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      features: ["Company Registration", "Business Setup", "Compliance", "Documentation"]
+      features: ["Company Registration", "Business Setup", "Compliance", "Documentation"],
+      image: [
+        "/new-img/Business Management-2.jpeg",
+        "/new-img/Business Management.jpeg"
+      ]
     },
     {
       title: "Business Bank Loan",
@@ -76,7 +81,7 @@ export default function Services() {
       category: "finance",
       gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
       features: ["Loan Application", "Financial Evaluation", "Bank Coordination", "Document Preparation"],
-      image: "/new-img/education-loan.jpeg"
+      image: "/new-img/business-bank-loan.jpeg"
     },
     {
       title: "Real Estate",
@@ -85,7 +90,7 @@ export default function Services() {
       category: "realestate",
       gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
       features: ["Property Buying/Selling", "Site Visits", "Legal Clarity", "Investment Guidance"],
-      image: "/new-img/britto-associates-buying-selling-card.jpeg"
+      image: "/new-img/real-state.jpeg"
     },
     {
       title: "Rental Property Management",
@@ -93,7 +98,8 @@ export default function Services() {
       icon: "🔑",
       category: "realestate",
       gradient: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
-      features: ["Tenant Screening", "Rent Collection", "Property Inspection", "Legal Compliance"]
+      features: ["Tenant Screening", "Rent Collection", "Property Inspection", "Legal Compliance"],
+      image: "/new-img/rental-property.jpeg"
     },
     {
       title: "RERA Registration",
@@ -102,7 +108,7 @@ export default function Services() {
       category: "legal",
       gradient: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
       features: ["RERA Compliance", "Project Registration", "Documentation", "Legal Support"],
-      image: "/new-img/britto-associates-reera.jpeg"
+      image: "/new-img/reera-registration.jpeg"
     },
     {
       title: "Social Activism",
@@ -130,6 +136,25 @@ export default function Services() {
     realestate: services.filter(s => s.category === "realestate").length,
     social: services.filter(s => s.category === "social").length
   };
+
+  // Education images for grid display
+  const educationImages = [
+    "/new-img/best-education-consultation-for-college.jpeg",
+    "/education/alpha-community-college.jpeg",
+    "/education/amity-university.jpeg",
+    "/education/aryan-college.jpeg",
+    "/education/bangalore-university.jpeg",
+    "/education/christ-university.jpeg",
+    "/education/cmru-university.jpeg",
+    "/education/deemed-university.jpeg",
+    "/education/duke-university.jpeg",
+    "/education/dy-patil-university.jpeg",
+    "/education/IIM-kozhikode.jpeg",
+    "/education/jain-university.jpeg",
+    "/education/kristu-jayanti-college.jpeg",
+    "/education/manipal-university.jpeg",
+    "/education/st-joseph's-university.jpeg"
+  ];
 
   // WhatsApp functions
   const openWhatsApp = (service = "", serviceType = "") => {
@@ -263,6 +288,175 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* Education Images Grid - Only show when education filter is active */}
+        {activeFilter === "education" && (
+          <div className={styles.educationImagesSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>FREE CONSULTATION AND ADMISSION GUIDANCE</h3>
+              <p className={styles.educationImagesSubtitle}>
+                Students book your seats for your higher studies in reputed colleges online or regular with nominal fees. If required education bank loans will be provided.
+              </p>
+            </div>
+
+            {/* Courses Offered */}
+            <div className={styles.coursesSection}>
+              <h4 className={styles.coursesTitle}>Courses Offered</h4>
+              <div className={styles.coursesGrid}>
+                <div className={styles.courseCategory}>
+                  <h5>Undergraduate & Postgraduate Programs</h5>
+                  <ul>
+                    <li>Ph.D</li>
+                    <li>BBA</li>
+                    <li>MBA</li>
+                    <li>MSC</li>
+                    <li>BA</li>
+                    <li>BCOM</li>
+                    <li>BSC</li>
+                  </ul>
+                </div>
+                <div className={styles.courseCategory}>
+                  <h5>Professional & Specialized Courses</h5>
+                  <ul>
+                    <li>ENGINEERING</li>
+                    <li>LAW</li>
+                    <li>MEDICAL RADIOLOGY</li>
+                    <li>ANESTHESIA & OT TECH</li>
+                    <li>PHYSIOTHERAPY</li>
+                    <li>MANAGEMENT</li>
+                    <li>EDUCATION</li>
+                    <li>PARAMEDICAL</li>
+                    <li>HOSPITAL ADMINISTRATION</li>
+                    <li>INDUSTRIAL TRAINING</li>
+                  </ul>
+                </div>
+                <div className={styles.courseCategory}>
+                  <h5>Special Programs</h5>
+                  <ul>
+                    <li>UNCOMPLETED EDUCATION FINISH EDUCATION WHILE WORKING</li>
+                    <li>Admission in colleges Free counseling & guidance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Health Care Assistant Course Section */}
+            <div className={styles.healthCareSection}>
+              <div className={styles.sectionHeader}>
+                <h4 className={styles.healthCareTitle}>Health Care Assistant Course Admission</h4>
+                <p className={styles.healthCareSubtitle}>
+                  Hello! 👋 Thank you for your interest in the Health Care Assistant course admission at CMR College, Bangalore.
+                </p>
+                <p className={styles.healthCareDescription}>
+                  We are currently offering admissions with a nominal fee structure and bank loan assistance is available.
+                </p>
+                <p className={styles.healthCareDescription}>
+                  For complete details on the course, fees, and to start your application, please visit: 
+                  <br />
+                  <strong>Website: www.brittoassociates.online</strong>
+                </p>
+                <p className={styles.healthCareDescription}>
+                  You can also reply here with your specific questions. We look forward to being your trusted partner.
+                </p>
+                <div className={styles.healthCareCta}>
+                  <button 
+                    className={styles.healthCareBtn}
+                    onClick={() => openWhatsApp("Health Care Assistant course", "CMR College Bangalore")}
+                  >
+                    <span className={styles.btnIcon}>💬</span>
+                    WhatsApp for FREE REGISTRATION
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Partner Institutions */}
+            <div className={styles.partnersListSection}>
+              <h4 className={styles.partnersListTitle}>ADMISSION PARTNERS</h4>
+              <div className={styles.partnersList}>
+                <ol>
+                  <li>Manipal university Jaipur & Manipal</li>
+                  <li>Annamalai university Tamilnadu</li>
+                  <li>C M R college Bangalore</li>
+                  <li>Jain College Bangalore</li>
+                  <li>Nova Academy of rural education and research Tamilnadu</li>
+                  <li>Technogloble IT Solution pvt Ltd (Academy for IT skilling India, Canada, UK, UAE) Bangalore</li>
+                  <li>Virohan health care institution Bangalore</li>
+                  <li>DR.MGR University Tamil nadu</li>
+                  <li>IALM (Institute of Law And Management) New Delhi</li>
+                  <li>Amity BANGALORE</li>
+                  <li>Alpha</li>
+                  <li>NMIMS</li>
+                  <li>ARYAN GROUP OF COLLEGES</li>
+                  <li>CMR UNIVERSITY BANGALORE</li>
+                  <li>CHRIST UNIVERSITY</li>
+                  <li>ST.JOSEPH'S UNIVERSITY</li>
+                  <li>ARUNACHAL UNIVERSITY</li>
+                  <li>NORTH EAST CHRISTIAN UNIVERSITY</li>
+                  <li>CV RAMAN UNIVERSITY</li>
+                  <li>INDO ASIAN ACADEMY DEGREE COLLEGE</li>
+                </ol>
+              </div>
+            </div>
+
+            {/* Education Images Grid */}
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>Our Education Partners & Institutions</h3>
+              <p className={styles.educationImagesSubtitle}>We partner with leading educational institutions across India</p>
+            </div>
+            <div className={styles.educationImagesGrid}>
+              {educationImages.map((image, index) => (
+                <div key={index} className={styles.educationImageCard}>
+                  <Image
+                    src={image}
+                    alt={`Education institution ${index + 1}`}
+                    width={200}
+                    height={150}
+                    className={styles.educationImage}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* IT Jobs Images Grid - Only show when career filter is active */}
+        {activeFilter === "career" && (
+          <div className={styles.educationImagesSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>IT JOB ASSISTANCE & PLACEMENT SUPPORT</h3>
+              <p className={styles.educationImagesSubtitle}>
+                Get placed in top IT companies with our comprehensive job assistance program. We provide end-to-end support from training to placement.
+              </p>
+            </div>
+
+            {/* IT Jobs Images Grid */}
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationImagesTitle}>Our IT Job Placement Success Stories</h3>
+              <p className={styles.educationImagesSubtitle}>We have successfully placed candidates in leading IT companies</p>
+            </div>
+            <div className={styles.educationImagesGrid}>
+              {[
+                "/it-jobs/it-jobs.jpeg",
+                "/it-jobs/it-jobs2.jpeg", 
+                "/it-jobs/it-jobs3.jpeg",
+                "/it-jobs/it-jobs4.jpeg"
+              ].map((image, index) => (
+                <div key={index} className={styles.educationImageCard}>
+                  <Image
+                    src={image}
+                    alt={`IT job placement ${index + 1}`}
+                    width={200}
+                    height={150}
+                    className={styles.educationImage}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredServices.length === 0 && (

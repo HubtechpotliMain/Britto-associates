@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import AwardCard from "@/components/AwardCard/AwardCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
@@ -65,7 +66,7 @@ export default function About() {
   const awards = [
     { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
     { title: "APJ Abdul Kalam Bhartiya Ratan Samaan", emoji: "🏆", image: "/images/kalam-samman-1.jpg" },
-    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME-img.jpeg" }
+    { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME.jpeg" }
   ];
 
   // WhatsApp functions
@@ -213,7 +214,15 @@ export default function About() {
               onClick={() => handleCertificationClick("ISO 9001:2015 Certification")}
               style={{ cursor: 'pointer' }}
             >
-              <div className={styles.certIcon}>🏅</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/iso.jpeg" 
+                  alt="ISO 9001:2005 Certification"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>ISO 9001:2005 (USA)</h3>
               <p>Quality Management System Certified</p>
             </div>
@@ -222,18 +231,34 @@ export default function About() {
               onClick={() => handleCertificationClick("MSME Registration")}
               style={{ cursor: 'pointer' }}
             >
-              <div className={styles.certIcon}>🇮🇳</div>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/MSME.jpeg" 
+                  alt="MSME Registration"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
               <h3>MSME Registered</h3>
               <p>Government of India</p>
             </div>
             <div 
               className={styles.certCard}
-              onClick={() => handleCertificationClick("GST Registration")}
+              onClick={() => handleCertificationClick("Real Estate Certification")}
               style={{ cursor: 'pointer' }}
             >
-              <div className={styles.certIcon}>📊</div>
-              <h3>GST Registered</h3>
-              <p>GST: 29BAGPB4125E2Z4</p>
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/new-img/real-state.jpeg" 
+                  alt="Real Estate Certification"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Real Estate Certified</h3>
+              <p>Professional Real Estate Services</p>
             </div>
           </div>
         </div>
