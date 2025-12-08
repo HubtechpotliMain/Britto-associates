@@ -195,7 +195,7 @@ export default function About() {
           </div>
 
           <blockquote className={styles.quote}>
-            "Business should not be about profits — it should be about purpose."  
+            &quot;Business should not be about profits — it should be about purpose.&quot;  
             <br />
             <span>– Mr. Antony John Britto</span>
           </blockquote>

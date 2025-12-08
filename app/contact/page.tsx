@@ -227,7 +227,7 @@ export default function Contact() {
             {activeTab === "form" && (
               <div className={`${styles.formSection} ${isVisible ? styles.animateIn : ''}`}>
                 <h2 className={styles.heading}>Send Us a Message</h2>
-                <p className={styles.subheading}>Fill out the form below and we'll get back to you shortly</p>
+                <p className={styles.subheading}>Fill out the form below and we&apos;ll get back to you shortly</p>
 
                 <form className={styles.contactForm} onSubmit={handleSubmit}>
                   <div className={styles.formRow}>

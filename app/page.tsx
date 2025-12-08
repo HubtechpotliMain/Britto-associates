@@ -251,7 +251,7 @@ export default function Home() {
               </div>
               
               <blockquote className={styles.quote}>
-                "Business should not be about profits — it should be about purpose."  
+                &quot;Business should not be about profits — it should be about purpose.&quot;  
                 <br />
                 <span>– Mr. Antony John Britto</span>
               </blockquote>
@@ -398,7 +398,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.finalCtaContent}>
             <h2>Ready to Work Together?</h2>
-            <p>Let's create positive impact through our collaborative services</p>
+            <p>Let&apos;s create positive impact through our collaborative services</p>
             <div className={styles.finalCtaButtons}>
               <button 
                 className={styles.primaryBtn}
