@@ -305,7 +305,7 @@ export default function About() {
         {/* Call to Action */}
         <div className={`${styles.ctaSection} ${isVisible ? styles.animateIn : ''}`}>
           <h2>Ready to Work Together?</h2>
-          <p>Let's create positive impact through our collaborative services</p>
+          <p>Let&apos;s create positive impact through our collaborative services</p>
           <div className={styles.ctaButtons}>
             <button 
               className={styles.primaryBtn} 
