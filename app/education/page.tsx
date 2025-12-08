@@ -200,7 +200,7 @@ export default function Education() {
                 <li>ARYAN GROUP OF COLLEGES</li>
                 <li>CMR UNIVERSITY BANGALORE</li>
                 <li>CHRIST UNIVERSITY</li>
-                <li>ST.JOSEPH'S UNIVERSITY</li>
+                <li>ST.JOSEPH&apos;S UNIVERSITY</li>
                 <li>ARUNACHAL UNIVERSITY</li>
                 <li>NORTH EAST CHRISTIAN UNIVERSITY</li>
                 <li>CV RAMAN UNIVERSITY</li>

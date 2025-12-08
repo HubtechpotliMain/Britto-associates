@@ -7,6 +7,16 @@ import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import styles from "./services.module.css";
 
+interface Service {
+  title: string;
+  description: string;
+  icon?: string;
+  category?: string;
+  gradient?: string;
+  features?: string[];
+  image?: string | string[];
+}
+
 export default function Services() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [isVisible, setIsVisible] = useState(false);
@@ -169,7 +179,7 @@ export default function Services() {
     window.open(url, '_blank');
   };
 
-  const handleServiceClick = (service: any) => {
+  const handleServiceClick = (service: Service) => {
     openWhatsApp(service.title, service.description);
   };
 
@@ -390,7 +400,7 @@ export default function Services() {
                   <li>ARYAN GROUP OF COLLEGES</li>
                   <li>CMR UNIVERSITY BANGALORE</li>
                   <li>CHRIST UNIVERSITY</li>
-                  <li>ST.JOSEPH'S UNIVERSITY</li>
+                  <li>ST.JOSEPH&apos;S UNIVERSITY</li>
                   <li>ARUNACHAL UNIVERSITY</li>
                   <li>NORTH EAST CHRISTIAN UNIVERSITY</li>
                   <li>CV RAMAN UNIVERSITY</li>
