@@ -15,6 +15,9 @@ export const metadata = {
     "A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.",
   keywords:
     "Real Estate Bangalore, Education Consultancy, IT Job Assistance, Legal Services, Britto Associates",
+  verification: {
+    google: "jDBbtrPPmdeE-gzntS9XytyuXAX4smFdN4jXP1c4qSg",
+  },
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
