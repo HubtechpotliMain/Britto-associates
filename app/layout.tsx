@@ -16,7 +16,7 @@ export const metadata = {
   keywords:
     "Real Estate Bangalore, Education Consultancy, IT Job Assistance, Legal Services, Britto Associates",
   verification: {
-    google: "jDBbtrPPmdeE-gzntS9XytyuXAX4smFdN4jXP1c4qSg",
+    google: "RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs",
   },
   icons: {
     icon: [
