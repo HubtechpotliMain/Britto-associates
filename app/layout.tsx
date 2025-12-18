@@ -32,6 +32,9 @@ export const metadata = {
       { rel: 'android-chrome-512x512', url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
     ]
   },
+  other: {
+    'google-site-verification': 'RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs'
+  },
   manifest: '/favicon/site.webmanifest'
 };
 
@@ -42,9 +45,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-site-verification" content="RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs" />
-      </head>
       <body className={poppins.className}>
         <BannerProvider>
           <Navbar />
