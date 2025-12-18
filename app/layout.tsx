@@ -80,6 +80,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
+        {/* Google Search Console Verification Script - Visible in source code */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              console.log('Google Search Console Verification Code: RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs');
+            `,
+          }}
+        />
         <BannerProvider>
           <Navbar />
           {children}
