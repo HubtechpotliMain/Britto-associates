@@ -15,6 +15,45 @@ export const metadata = {
     "A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.",
   keywords:
     "Real Estate Bangalore, Education Consultancy, IT Job Assistance, Legal Services, Britto Associates",
+  authors: [{ name: "Britto Associates" }],
+  creator: "Britto Associates",
+  publisher: "Britto Associates",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://britto-associates-three.vercel.app',
+    siteName: 'Britto Associates',
+    title: 'BRITTO ASSOCIATES',
+    description: 'A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.',
+    images: [
+      {
+        url: '/logo/logo.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Britto Associates Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BRITTO ASSOCIATES',
+    description: 'A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.',
+    images: ['/logo/logo.jpg'],
+  },
+  verification: {
+    google: "RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs",
+  },
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -29,7 +68,8 @@ export const metadata = {
       { rel: 'android-chrome-512x512', url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
     ]
   },
-  manifest: '/favicon/site.webmanifest'
+  manifest: '/favicon/site.webmanifest',
+  metadataBase: new URL('https://britto-associates-three.vercel.app'),
 };
 
 export default function RootLayout({
