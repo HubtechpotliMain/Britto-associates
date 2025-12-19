@@ -79,14 +79,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs" />
+      </head>
       <body className={poppins.className}>
-        {/* Google Search Console Verification - Visible in source code */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var meta=document.createElement('meta');meta.name='google-site-verification';meta.content='RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs';document.getElementsByTagName('head')[0].appendChild(meta);console.log('Google Search Console Verification Code: RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs');})();`,
-          }}
-        />
         <BannerProvider>
           <Navbar />
           {children}
