@@ -8,6 +8,7 @@ import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import AwardCard from "@/components/AwardCard/AwardCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import FounderArticle from "@/components/FounderArticle";
+import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -152,7 +153,8 @@ export default function Home() {
     { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
     { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
     { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
-    { title: "E India News", url: "https://eindianews.com/britto-associates/" }
+    { title: "E India News", url: "https://eindianews.com/britto-associates/" },
+    { title: "Daily Hunt", url: "https://dhunt.in/12SrTQ" }
   ];
 
   // Helper function for media logos
@@ -344,6 +346,9 @@ export default function Home() {
       </section>
 
       <WhyChooseUs />
+
+      {/* Registration Form Section */}
+      <RegistrationForm />
 
       {/* Certifications Section */}
       <section className={styles.certificationsSection}>

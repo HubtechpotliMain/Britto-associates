@@ -11,29 +11,14 @@ type BannerProviderProps = {
 // Banner data
 const banners = [
   {
-    src: "/banner/college-banner.jpeg",
-    alt: "College Admission Banner",
-    caption: "Admissions Open for 2025-26 Academic Year"
+    src: "/firstvisitbanner/image.png",
+    alt: "Britto Associates Banner",
+    caption: ""
   },
   {
-    src: "/banner/free-consultation-banner.jpeg",
-    alt: "Free Consultation Banner",
-    caption: "Get Free Consultation for All Our Services"
-  },
-  {
-    src: "/banner/education-all-types-banner.jpeg",
-    alt: "Education All Types Banner",
-    caption: "Comprehensive Education Services for All Levels"
-  },
-  {
-    src: "/banner/welcome-december-banner.jpeg",
-    alt: "Welcome December Banner",
-    caption: "Special Offers for December 2025"
-  },
-  {
-    src: "/banner/welcome-december-banner2.jpeg",
-    alt: "Welcome December Banner 2",
-    caption: "Year-End Special Deals Available"
+    src: "/firstvisitbanner/2nd.png",
+    alt: "Britto Associates Banner 2",
+    caption: ""
   }
 ];
 

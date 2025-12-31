@@ -260,6 +260,57 @@ export default function About() {
               <h3>Real Estate Certified</h3>
               <p>Professional Real Estate Services</p>
             </div>
+            <div 
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 1")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/certificate/certifcate1.png" 
+                  alt="Certificate 1"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
+            <div 
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 2")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/certificate/certificate2.png" 
+                  alt="Certificate 2"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
+            <div 
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 3")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image 
+                  src="/certificate/certificate3.png" 
+                  alt="Certificate 3"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
           </div>
         </div>
         {/* Online Media Section */}
@@ -283,7 +334,8 @@ export default function About() {
       { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
       { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
       { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
-      { title: "E India News", url: "https://eindianews.com/britto-associates/" }
+      { title: "E India News", url: "https://eindianews.com/britto-associates/" },
+      { title: "Daily Hunt", url: "https://dhunt.in/12SrTQ" }
     ].map((item, index) => (
       <a
         key={index}
