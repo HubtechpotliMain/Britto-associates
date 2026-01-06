@@ -50,6 +50,34 @@ export default function Education() {
     "/education/st-joseph's-university.jpeg"
   ];
 
+  // Photos from Education page folder
+  const educationPagePhotos = [
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.24.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (2).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (3).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.31.jpeg"
+  ];
+
+  // Videos from Education page folder
+  const educationPageVideos = [
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.28.mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (1).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (2).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (3).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29.mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (1).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (2).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30.mp4"
+  ];
+
   // New banner images for education section
   const educationBanners = [
     "/banner/addmission-open.jpeg",
@@ -233,12 +261,36 @@ export default function Education() {
             </div>
           </div>
 
+          {/* Education Page Photos Section */}
+          <div className={styles.educationPhotosSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.educationPhotosTitle}>Education Gallery</h3>
+              <p className={styles.educationPhotosSubtitle}>
+                Explore our education activities, events, and student success stories
+              </p>
+            </div>
+            <div className={styles.educationPhotosGrid}>
+              {educationPagePhotos.map((photo, index) => (
+                <div key={index} className={styles.educationPhotoCard}>
+                  <Image
+                    src={photo}
+                    alt={`Education gallery photo ${index + 1}`}
+                    width={400}
+                    height={300}
+                    className={styles.educationPhoto}
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Video Section */}
           <div className={styles.videoSection}>
             <div className={styles.sectionHeader}>
               <h3 className={styles.videoTitle}>Educational Videos</h3>
               <p className={styles.videoSubtitle}>
-                Watch our informative videos about college admissions and healthcare courses
+                Watch our informative videos about college admissions, healthcare courses, and educational programs
               </p>
             </div>
             <div className={styles.videoGrid}>
@@ -268,6 +320,24 @@ export default function Education() {
                 </video>
                 <p>Discover opportunities in healthcare with our assistant course program</p>
               </div>
+            </div>
+            
+            {/* Education Page Videos Grid */}
+            <div className={styles.educationVideosGrid}>
+              {educationPageVideos.map((video, index) => (
+                <div key={index} className={styles.educationVideoCard}>
+                  <video
+                    className={styles.educationVideoPlayer}
+                    controls
+                    preload="metadata"
+                    poster="/banner/college-banner.jpeg"
+                  >
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <p className={styles.educationVideoCaption}>Education Video {index + 1}</p>
+                </div>
+              ))}
             </div>
           </div>
 

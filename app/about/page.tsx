@@ -146,7 +146,7 @@ export default function About() {
           <div className={styles.founderContent}>
             <div className={styles.founderImageWrapper}>
               <img 
-                src="/images/founder-smile-event2.jpg" 
+                src="/owner photo/image.png" 
                 alt="Mr. Antony John Britto - Founder of Britto Associates"
                 className={styles.founderImage}
               />
