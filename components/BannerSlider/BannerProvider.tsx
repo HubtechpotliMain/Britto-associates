@@ -8,19 +8,8 @@ type BannerProviderProps = {
   children: React.ReactNode;
 };
 
-// Banner data
-const banners = [
-  {
-    src: "/firstvisitbanner/image.png",
-    alt: "Britto Associates Banner",
-    caption: ""
-  },
-  {
-    src: "/firstvisitbanner/2nd.png",
-    alt: "Britto Associates Banner 2",
-    caption: ""
-  }
-];
+// Banner data - now using registration form content instead of images
+const banners = [{}];
 
 export default function BannerProvider({ children }: BannerProviderProps) {
   const [showBanner, setShowBanner] = useState(false);

@@ -55,7 +55,7 @@ export default function RegistrationForm() {
   };
 
   return (
-    <section className={styles.registrationSection}>
+    <section id="registration-form-section" className={styles.registrationSection}>
       <div className="container">
         <div className={styles.formContainer}>
           {/* Header/Branding */}

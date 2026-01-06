@@ -6,36 +6,42 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
 }
 
 .modal {
   position: relative;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  max-width: 90vw;
-  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  max-width: 550px;
+  width: 100%;
+  max-height: 85vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin: auto;
+  pointer-events: auto;
 }
 
 .closeButton {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.7);
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
@@ -44,6 +50,9 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  line-height: 1;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .closeButton:hover {
@@ -51,14 +60,23 @@
   transform: scale(1.1);
 }
 
+.closeButton:active {
+  transform: scale(0.95);
+}
+
 .bannerContainer {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 1;
-  min-height: 400px;
+  min-height: auto;
+  padding: 20px 18px;
+  overflow-y: auto;
+  max-height: 80vh;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 .bannerImage {
@@ -156,75 +174,600 @@
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .modal {
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: 600px;
+    border-radius: 14px;
   }
   
   .bannerContainer {
-    min-height: 300px;
+    padding: 18px 16px;
   }
   
-  .bannerImage {
-    max-height: 60vh;
+  .registrationBanner {
+    padding: 18px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .backdrop {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.35);
   }
   
-  .navButton {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+  .modal {
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: 12px;
   }
   
-  .prevButton {
-    left: 10px;
-  }
-  
-  .nextButton {
-    right: 10px;
+  .bannerContainer {
+    min-height: auto;
+    padding: 16px 14px;
+    max-height: 80vh;
   }
   
   .closeButton {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     font-size: 20px;
-    top: 10px;
-    right: 10px;
+    top: 6px;
+    right: 6px;
   }
   
-  .caption {
-    padding: 15px;
+  .registrationBanner {
+    padding: 16px 14px;
+    border-radius: 10px;
+  }
+  
+  .bannerHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  
+  .bannerRecognitionSection {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .bannerLogoCircle {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+  }
+  
+  .bannerLogoText {
+    font-size: 24px;
+  }
+  
+  .bannerLogoSubtext {
+    font-size: 7px;
+  }
+  
+  .bannerLogoRing {
+    font-size: 5px;
+    padding: 10px;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+  }
+  
+  .bannerRecognitionText {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  
+  .bannerIsoText {
+    font-size: 9px;
+  }
+  
+  .bannerCompanyName {
+    margin-bottom: 12px;
+  }
+  
+  .bannerCompanyName h1 {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+  }
+  
+  .bannerTagline {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  
+  .bannerApprovalText {
+    font-size: 8px;
+  }
+  
+  .bannerFormTitle {
     font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
   }
   
-  .counter {
-    top: 10px;
-    left: 10px;
+  .bannerFormPreview {
+    padding: 12px 10px;
+    border-radius: 6px;
+  }
+  
+  .bannerFormRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .bannerFormField label {
+    font-size: 9px;
+  }
+  
+  .bannerFormPlaceholder {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+  
+  .bannerClickText {
     font-size: 12px;
+    padding: 10px 12px;
+    letter-spacing: 0.3px;
   }
 }
 
 @media (max-width: 480px) {
+  .backdrop {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal {
+    max-width: 95vw;
+    max-height: 85vh;
+    border-radius: 12px;
+  }
+  
   .bannerContainer {
-    min-height: 250px;
+    padding: 14px 12px;
+    min-height: auto;
+    max-height: 75vh;
   }
   
-  .bannerImage {
-    max-height: 50vh;
-  }
-  
-  .navButton {
-    width: 35px;
-    height: 35px;
+  .closeButton {
+    width: 30px;
+    height: 30px;
     font-size: 18px;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.8);
   }
   
-  .dotsContainer {
-    bottom: 15px;
+  .registrationBanner {
+    padding: 14px 12px;
+    border-radius: 8px;
   }
   
-  .dot {
-    width: 10px;
-    height: 10px;
+  .bannerHeader {
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  
+  .bannerLogoCircle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .bannerLogoText {
+    font-size: 26px;
+    margin-bottom: 2px;
+  }
+  
+  .bannerLogoSubtext {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+  
+  .bannerLogoRing {
+    font-size: 5px;
+    padding: 10px;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    line-height: 1.1;
+  }
+  
+  .bannerRecognitionText {
+    font-size: 11px;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  
+  .bannerIsoText {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+  
+  .bannerCompanyName {
+    margin-bottom: 15px;
+  }
+  
+  .bannerCompanyName h1 {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  
+  .bannerTagline {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .bannerApprovalText {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+  
+  .bannerFormTitle {
+    font-size: 15px;
+    margin-bottom: 15px;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+  
+  .bannerFormPreview {
+    padding: 15px 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .bannerFormRow {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .bannerFormField {
+    gap: 5px;
+  }
+  
+  .bannerFormField label {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+  
+  .bannerFormPlaceholder {
+    font-size: 11px;
+    padding: 8px 10px;
+    min-height: 18px;
+  }
+  
+  .bannerClickText {
+    font-size: 13px;
+    padding: 12px 10px;
+    letter-spacing: 0.2px;
+    border-width: 1.5px;
   }
 }
+
+@media (max-width: 360px) {
+  .modal {
+    max-width: 92vw;
+  }
+  
+  .bannerContainer {
+    padding: 12px 10px;
+  }
+  
+  .registrationBanner {
+    padding: 12px 10px;
+  }
+  
+  .bannerLogoCircle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .bannerLogoText {
+    font-size: 20px;
+  }
+  
+  .bannerLogoSubtext {
+    font-size: 6px;
+  }
+  
+  .bannerLogoRing {
+    font-size: 4px;
+    padding: 8px;
+  }
+  
+  .bannerCompanyName h1 {
+    font-size: 16px;
+  }
+  
+  .bannerFormTitle {
+    font-size: 12px;
+  }
+  
+  .bannerFormPreview {
+    padding: 10px 8px;
+  }
+  
+  .bannerFormPlaceholder {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  
+  .bannerClickText {
+    font-size: 11px;
+    padding: 9px 8px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .backdrop {
+    align-items: flex-start;
+    padding-top: 5px;
+  }
+  
+  .modal {
+    max-height: 98vh;
+  }
+  
+  .bannerContainer {
+    max-height: 85vh;
+    padding: 15px 12px;
+  }
+  
+  .registrationBanner {
+    padding: 18px 15px;
+  }
+  
+  .bannerHeader {
+    flex-direction: row;
+    gap: 12px;
+  }
+  
+  .bannerLogoCircle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .bannerLogoText {
+    font-size: 24px;
+  }
+  
+  .bannerCompanyName h1 {
+    font-size: 22px;
+  }
+  
+  .bannerFormTitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .bannerFormPreview {
+    padding: 12px 10px;
+  }
+  
+  .bannerFormRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+/* Registration Banner Styles */
+.registrationBanner {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, #0a1a3a 0%, #1a2b4a 100%);
+  border-radius: 12px;
+  padding: 20px 18px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.bannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bannerLogoSection {
+  flex: 0 0 auto;
+}
+
+.bannerLogoCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  border: 2px solid #b8941f;
+  flex-shrink: 0;
+}
+
+.bannerLogoText {
+  font-size: 28px;
+  font-weight: 900;
+  color: #0a1a3a;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+
+.bannerLogoSubtext {
+  font-size: 8px;
+  font-weight: 700;
+  color: #0a1a3a;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.bannerLogoRing {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  font-weight: 700;
+  color: #d4af37;
+  text-align: center;
+  padding: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bannerRecognitionSection {
+  flex: 1;
+  text-align: right;
+  color: white;
+  min-width: 0;
+}
+
+.bannerRecognitionText {
+  font-size: 11px;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 4px;
+  letter-spacing: 0.8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bannerIsoText {
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.4px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bannerCompanyName {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.bannerCompanyName h1 {
+  font-size: 22px;
+  font-weight: 900;
+  color: #d4af37;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.bannerTagline {
+  font-size: 11px;
+  color: white;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.bannerApprovalText {
+  font-size: 9px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.bannerFormTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #d4af37;
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.bannerFormPreview {
+  background: rgba(15, 30, 50, 0.6);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.bannerFormRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.bannerFormField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bannerFormField label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.bannerFormPlaceholder {
+  padding: 8px 10px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-weight: 400;
+  font-style: italic;
+  min-height: 18px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bannerClickText {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4af37;
+  padding: 12px 14px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 8px;
+  border: 2px dashed #d4af37;
+  transition: all 0.3s ease;
+  letter-spacing: 0.4px;
+  word-wrap: break-word;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bannerContainer:hover .bannerClickText {
+  background: rgba(212, 175, 55, 0.2);
+  transform: scale(1.02);
+}
+
+.bannerContainer:active .bannerClickText {
+  transform: scale(0.98);
+}
+
