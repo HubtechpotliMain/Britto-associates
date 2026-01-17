@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Metadata } from 'next';
 import { Poppins } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -9,67 +10,43 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "BRITTO ASSOCIATES",
-  description:
-    "A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.",
-  keywords:
-    "Real Estate Bangalore, Education Consultancy, IT Job Assistance, Legal Services, Britto Associates",
+export const metadata: Metadata = {
+  title: "Best undergraduate courses in Bangalore | Postgraduate Courses",
+  description: "Best undergraduate and postgraduate courses in Bangalore. Explore top colleges offering BCA, BCom, BSc Nursing, BDes, MA, MBA, MSc, MTech, admission details and career.",
+  keywords: "undergraduate courses Bangalore, postgraduate courses Bangalore, BCA colleges, BCom colleges, BSc Nursing colleges, BDes colleges, MA courses, MBA courses, MSc courses, MTech courses, top colleges Bangalore",
   authors: [{ name: "Britto Associates" }],
-  creator: "Britto Associates",
-  publisher: "Britto Associates",
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  },
+  alternates: {
+    canonical: "https://www.brittoassociates.com/",
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: 'https://britto-associates-three.vercel.app',
-    siteName: 'Britto Associates',
-    title: 'BRITTO ASSOCIATES',
-    description: 'A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.',
+    title: "Best undergraduate courses in Bangalore | Postgraduate Courses",
+    description: "Best undergraduate and postgraduate courses in Bangalore. Explore top colleges offering BCA, BCom, BSc Nursing, BDes, MA, MBA, MSc, MTech, admission details and career.",
+    url: "https://www.brittoassociates.com",
+    siteName: "Britto Associates",
     images: [
       {
-        url: '/logo/logo.jpg',
+        url: "https://www.brittoassociates.com/logo/logo.jpg",
         width: 1200,
         height: 630,
-        alt: 'Britto Associates Logo',
+        alt: "Britto Associates Logo",
       },
     ],
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'BRITTO ASSOCIATES',
-    description: 'A multifaceted enterprise in Real Estate, Education, IT Job Assistance & Social Activism from Bangalore.',
-    images: ['/logo/logo.jpg'],
+    card: "summary_large_image",
+    title: "Best undergraduate courses in Bangalore | Postgraduate Courses",
+    description: "Best undergraduate and postgraduate courses in Bangalore. Explore top colleges offering BCA, BCom, BSc Nursing, BDes, MA, MBA, MSc, MTech, admission details and career.",
+    images: ["https://www.brittoassociates.com/logo/logo.jpg"],
   },
   verification: {
     google: "RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs",
   },
-  icons: {
-    icon: [
-      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon/favicon.ico', sizes: 'any' }
-    ],
-    apple: [
-      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-    ],
-    other: [
-      { rel: 'android-chrome-192x192', url: '/favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { rel: 'android-chrome-512x512', url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
-    ]
-  },
-  manifest: '/favicon/site.webmanifest',
-  metadataBase: new URL('https://britto-associates-three.vercel.app'),
+  metadataBase: new URL("https://www.brittoassociates.com"),
 };
 
 export default function RootLayout({
@@ -77,10 +54,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Britto Associates",
+    "url": "https://www.brittoassociates.com/",
+    "logo": "https://www.brittoassociates.com/logo/logo.jpg",
+    "image": "https://www.brittoassociates.com/logo/logo.jpg",
+    "description": "Best undergraduate and postgraduate courses in Bangalore. Explore top colleges offering BCA, BCom, BSc Nursing, BDes, MA, MBA, MSc, MTech, admission details and career.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "203, Kanakadasa Layout, Kanakadasa Main Road, Lingarajapuram, Bangalore – 560084",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91 9739950153",
+    "sameAs": ["", "", ""]
+  };
+
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="RPUQ3nKGRiZQXiXh8U_FT8Ru52v6sFQi0u3Y9aV9wvs" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className={poppins.className}>
         <BannerProvider>
