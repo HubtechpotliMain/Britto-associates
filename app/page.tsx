@@ -8,16 +8,15 @@ import ServiceCard from "@/components/ServiceCard/ServiceCard";
 import AwardCard from "@/components/AwardCard/AwardCard";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import FounderArticle from "@/components/FounderArticle";
-import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import styles from "./Home.module.css";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState("mission");
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -27,13 +26,13 @@ export default function Home() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -47,7 +46,7 @@ export default function Home() {
       image: "/new-img/best-education-consultation-for-college.jpeg"
     },
     {
-      title: "IT Job Assistance", 
+      title: "IT Job Assistance",
       description: "Professional IT job placement and career guidance services.",
       icon: "💼",
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -120,6 +119,7 @@ export default function Home() {
     { title: "Mahatma Gandhi Pride Medal", emoji: "🎖️", image: "/new-img/mahatma-gandhi-pride-medal.jpeg" }
   ];
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const values = [
     {
       icon: "🤝",
@@ -128,7 +128,7 @@ export default function Home() {
     },
     {
       icon: "🌱",
-      title: "Social Impact", 
+      title: "Social Impact",
       description: "Every service we provide contributes to positive social change."
     },
     {
@@ -142,6 +142,7 @@ export default function Home() {
       description: "Putting people and their well-being at the center of everything we do."
     }
   ];
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
   // Online Media Coverage data
   const mediaCoverage = [
@@ -153,8 +154,7 @@ export default function Home() {
     { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
     { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
     { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
-    { title: "E India News", url: "https://eindianews.com/britto-associates/" },
-    { title: "Daily Hunt", url: "https://dhunt.in/12SrTQ" }
+    { title: "E India News", url: "https://eindianews.com/britto-associates/" }
   ];
 
   // Helper function for media logos
@@ -168,11 +168,11 @@ export default function Home() {
   const openWhatsApp = (service = "") => {
     const phoneNumber = "919739950153";
     let message = "Hello! I'm interested in your services.";
-    
+
     if (service) {
       message = `Hello! I'm interested in your ${service} services. Please provide more information.`;
     }
-    
+
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -205,7 +205,7 @@ export default function Home() {
       <div className={styles.statsBanner}>
         <div className="container">
           <div className={styles.statsContainer}>
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <div key={stat.label} className={styles.statItem}>
                 <span className={styles.statNumber}>{stat.number}</span>
                 <span className={styles.statText}>{stat.label}</span>
@@ -222,28 +222,28 @@ export default function Home() {
             <div className={styles.aboutText}>
               <h2 className={styles.aboutTitle}>About BRITTO ASSOCIATES</h2>
               <p className={styles.aboutDescription}>
-                A visionary enterprise recognized under MSME (Govt. of India), led by Mr. Antony John Britto. 
-                We are a multifaceted enterprise based in Bangalore working across Education Consultancy, 
+                A visionary enterprise recognized under MSME (Govt. of India), led by Mr. Antony John Britto.
+                We are a multifaceted enterprise based in Bangalore working across Education Consultancy,
                 IT Job Support, Legal Assistance, Business Management, Real Estate, and Social Welfare.
               </p>
-              
+
               <div className={styles.founderSection}>
                 <h3>Our Founder</h3>
                 <FounderArticle />
               </div>
             </div>
-            
+
             <div className={styles.aboutAchievements}>
               <h3>Our Achievements</h3>
               <div className={styles.awardsGrid}>
                 {awards.map((award, index) => (
-                  <div 
+                  <div
                     key={award.title}
                     onClick={() => handleAwardClick(award.title)}
                     style={{ cursor: 'pointer' }}
                   >
-                    <AwardCard 
-                      title={award.title} 
+                    <AwardCard
+                      title={award.title}
                       emoji={award.emoji}
                       delay={index * 100}
                       image={award.image}
@@ -251,9 +251,9 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              
+
               <blockquote className={styles.quote}>
-                &quot;Business should not be about profits — it should be about purpose.&quot;  
+                &quot;Business should not be about profits — it should be about purpose.&quot;
                 <br />
                 <span>– Mr. Antony John Britto</span>
               </blockquote>
@@ -297,7 +297,7 @@ export default function Home() {
         </div>
 
         {/* Quick CTA */}
-       
+
       </section>
 
       {/* Online Media Coverage Section */}
@@ -347,9 +347,6 @@ export default function Home() {
 
       <WhyChooseUs />
 
-      {/* Registration Form Section */}
-      <RegistrationForm />
-
       {/* Certifications Section */}
       <section className={styles.certificationsSection}>
         <div className="container">
@@ -357,8 +354,8 @@ export default function Home() {
           <div className={styles.certifications}>
             <div className={styles.certCard}>
               <div className={styles.certIcon}>
-                <Image 
-                  src="/new-img/iso.jpeg" 
+                <Image
+                  src="/new-img/iso.jpeg"
                   alt="ISO 9001:2005 Certification"
                   width={150}
                   height={150}
@@ -370,8 +367,8 @@ export default function Home() {
             </div>
             <div className={styles.certCard}>
               <div className={styles.certIcon}>
-                <Image 
-                  src="/new-img/MSME.jpeg" 
+                <Image
+                  src="/new-img/MSME.jpeg"
                   alt="MSME Registration"
                   width={150}
                   height={150}
@@ -383,8 +380,8 @@ export default function Home() {
             </div>
             <div className={styles.certCard}>
               <div className={styles.certIcon}>
-                <Image 
-                  src="/new-img/GST.jpeg" 
+                <Image
+                  src="/new-img/GST.jpeg"
                   alt="GST Registration"
                   width={150}
                   height={150}
@@ -405,21 +402,21 @@ export default function Home() {
             <h2>Ready to Work Together?</h2>
             <p>Let&apos;s create positive impact through our collaborative services</p>
             <div className={styles.finalCtaButtons}>
-              <button 
+              <button
                 className={styles.primaryBtn}
                 onClick={handleFreeConsultation}
               >
-                <svg 
+                <svg
                   className={styles.whatsappIcon}
-                  viewBox="0 0 24 24" 
+                  viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                 </svg>
                 Get In Touch
               </button>
-              <button 
+              <button
                 className={styles.secondaryBtn}
                 onClick={handleViewServices}
               >
