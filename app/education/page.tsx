@@ -56,29 +56,29 @@ export default function Education() {
 
   // Photos from Education page folder
   const educationPagePhotos = [
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.24.jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25 (1).jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25.jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26 (1).jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26.jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (1).jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (3).jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27.jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28 (1).jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28.jpeg",
-    "/Education page/WhatsApp Image 2025-12-31 at 17.53.31.jpeg"
+    "/educations/1.jpeg",
+    "/educations/2.jpeg",
+    "/educations/3.jpeg",
+    "/educations/4.jpeg",
+    "/educations/5.jpeg",
+    "/educations/6.jpeg",
+    "/educations/7.jpeg",
+    "/educations/8.jpeg",
+    "/educations/9.jpeg",
+    "/educations/10.jpeg",
+    "/educations/11.jpeg",
+    "/educations/12.jpeg",
+    "/educations/13.jpeg",
+    "/educations/14.jpeg"
   ];
 
   // Videos from Education page folder
   const educationPageVideos = [
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.28.mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (1).mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (2).mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (3).mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29.mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (1).mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (2).mp4",
-    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30.mp4"
+    "/videos/1.mp4",
+    "/videos/2.mp4",
+    "/videos/3.mp4",
+    "/videos/4.mp4",
+    "/videos/5.mp4"
   ];
 
   // New banner images for education section
