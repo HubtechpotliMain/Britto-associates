@@ -361,74 +361,107 @@
   border-radius: 10px;
 }
 
+/* Education Photos Section */
+.educationPhotosSection {
+  margin: 80px 0;
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.educationPhotosTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.educationPhotosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.educationPhotoCard {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.educationPhotoCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.educationPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.educationPhotoCard:hover .educationPhoto {
+  transform: scale(1.05);
+}
+
 /* Video Section Styles */
 .videoSection {
-  margin: 60px 0;
+  margin: 80px 0;
   padding: 40px 0;
   border-top: 1px solid #e2e8f0;
 }
 
 .videoTitle {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   color: #1e293b;
   text-align: center;
-  margin-bottom: 12px;
-}
-
-.videoSubtitle {
-  font-size: 16px;
-  color: #64748b;
-  text-align: center;
   margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
 }
 
 .videoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .videoCard {
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  text-align: center;
+  aspect-ratio: 16/9;
 }
 
 .videoCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.videoCard h4 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .videoPlayer {
   width: 100%;
-  height: 250px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background: #000;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.videoCard p {
-  font-size: 14px;
-  color: #64748b;
-  line-height: 1.6;
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .educationPhotosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -642,106 +675,82 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .educationImageCard {
-    height: 100px;
-  }
 }
 
-/* Education Photos Section */
-.educationPhotosSection {
-  margin: 60px 0;
-  padding: 40px 0;
-  border-top: 1px solid #e2e8f0;
-}
-
-.educationPhotosTitle {
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.educationPhotosSubtitle {
-  font-size: 16px;
-  color: #64748b;
-  text-align: center;
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.educationPhotosGrid {
+/* Institutional Gallery */
+.galleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
 }
 
-.educationPhotoCard {
-  background: white;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4/3;
   overflow: hidden;
+  border-radius: 12px;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
-.educationPhotoCard:hover {
+.galleryItem:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.educationPhoto {
+.galleryImage {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
-/* Education Videos Grid */
+@media (max-width: 640px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+
+
+/* Consolidated Grid for all Educational Videos */
 .educationVideosGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
   max-width: 1400px;
   margin: 40px auto 0;
 }
 
 .educationVideoCard {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  text-align: center;
+  aspect-ratio: 16/9;
 }
 
 .educationVideoCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .educationVideoPlayer {
   width: 100%;
-  height: 250px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  background: #000;
+  height: 100%;
+  display: block;
   object-fit: cover;
 }
 
-.educationVideoCaption {
-  font-size: 14px;
-  color: #64748b;
-  font-weight: 500;
-  margin: 0;
-}
 
 /* Enhanced Responsive Styles */
 @media (max-width: 1024px) {
@@ -869,21 +878,12 @@
   
   .educationPhotosTitle {
     font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .educationPhotosSubtitle {
-    font-size: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
   
   .educationPhotosGrid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
-  }
-  
-  .educationPhotoCard {
-    padding: 8px;
   }
   
   .videoSection {
@@ -893,39 +893,12 @@
   
   .videoTitle {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   
-  .videoSubtitle {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-  
-  .videoGrid {
+  .videoGrid, .educationVideosGrid {
     grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .videoCard {
-    padding: 20px;
-  }
-  
-  .videoPlayer {
-    height: 200px;
-  }
-  
-  .educationVideosGrid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 30px;
-  }
-  
-  .educationVideoCard {
-    padding: 15px;
-  }
-  
-  .educationVideoPlayer {
-    height: 200px;
+    gap: 20px;
   }
   
   .partnersSection {
@@ -983,6 +956,7 @@
     font-size: 14px;
   }
 }
+
 
 @media (max-width: 480px) {
   .heading {
@@ -1062,48 +1036,15 @@
   
   .educationPhotosGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
   
   .educationPhotoCard {
-    padding: 6px;
+    aspect-ratio: 1/1; /* Squares look better on small mobile grids */
   }
-  
-  .videoGrid {
-    gap: 25px;
-  }
-  
-  .videoCard {
-    padding: 15px;
-  }
-  
-  .videoCard h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .videoPlayer {
-    height: 180px;
-  }
-  
-  .videoCard p {
-    font-size: 13px;
-  }
-  
-  .educationVideosGrid {
-    gap: 20px;
-  }
-  
-  .educationVideoCard {
-    padding: 12px;
-  }
-  
-  .educationVideoPlayer {
-    height: 180px;
-  }
-  
-  .educationVideoCaption {
-    font-size: 12px;
+
+  .videoGrid, .educationVideosGrid {
+    gap: 15px;
   }
   
   .educationImagesGrid {
@@ -1150,6 +1091,7 @@
     font-size: 13px;
   }
 }
+
 
 @media (max-width: 360px) {
   .heading {
