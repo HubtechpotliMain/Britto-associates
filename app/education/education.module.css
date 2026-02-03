@@ -1116,9 +1116,7 @@
   .heading,
   .subheading,
   .ctaSection,
-  .serviceItem,
-  .educationPhotoCard,
-  .educationVideoCard {
+  .serviceItem {
     transition: none !important;
     animation: none !important;
     opacity: 1 !important;

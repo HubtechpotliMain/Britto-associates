@@ -9,13 +9,16 @@ import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import styles from "./about.module.css";
 
 export default function About() {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const [activeTab, setActiveTab] = useState("mission");
+  /* eslint-enable @typescript-eslint/no-unused-vars */
   const [isVisible, setIsVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<{ src?: string; alt?: string; caption?: string } | null>(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,13 +28,13 @@ export default function About() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -43,6 +46,7 @@ export default function About() {
     { number: "50+", label: "Projects Completed" }
   ];
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const values = [
     {
       icon: "🤝",
@@ -65,6 +69,7 @@ export default function About() {
       description: "Putting people and their well-being at the center of everything we do."
     }
   ];
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
   const awards = [
     { title: "Mahatma Gandhi National Pride Award", emoji: "🏅", image: "/images/award-mahatma-gandhi-pride.jpg" },
@@ -137,7 +142,7 @@ export default function About() {
       <section className={styles.statsSection}>
         <div className="container">
           <div className={styles.statsGrid}>
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <div key={stat.label} className={styles.statCard}>
                 <h3 className={styles.statNumber}>{stat.number}</h3>
                 <p className={styles.statLabel}>{stat.label}</p>

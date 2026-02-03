@@ -3,10 +3,17 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ImageModal from "@/components/ImageModal/ImageModal";
 import styles from "./BannerSlider.module.css";
 
+type Banner = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
 type Props = {
-  banners: Array<Record<string, unknown>>;
+  banners: Banner[];
   open: boolean;
   onClose: () => void;
   autoPlay?: boolean;
@@ -22,31 +29,43 @@ export default function BannerSlider({
   autoPlayInterval = 5000,
   initialDelay = 3000 
 }: Props) {
-  const handleBannerClick = () => {
-    onClose();
-    // Small delay to allow modal to close before scrolling
-    setTimeout(() => {
-      const registrationSection = document.getElementById('registration-form-section');
-      if (registrationSection) {
-        registrationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        // If on a different page, navigate to home page with hash
-        if (window.location.pathname !== '/') {
-          window.location.href = '/#registration-form-section';
-        } else {
-          // If on home page but section not found yet, wait a bit and try again
-          setTimeout(() => {
-            const section = document.getElementById('registration-form-section');
-            if (section) {
-              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }, 100);
-        }
-      }
-    }, 100);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      const timer = setTimeout(() => {
+        setIsReady(true);
+      }, initialDelay);
+      return () => clearTimeout(timer);
+    }
+  }, [open, initialDelay]);
+
+  useEffect(() => {
+    if (!open || !autoPlay || !isReady) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+    }, autoPlayInterval);
+
+    return () => clearInterval(interval);
+  }, [open, autoPlay, autoPlayInterval, banners.length, isReady]);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
   };
 
-  if (!open) return null;
+  const goToPrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + banners.length) % banners.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  if (!open || banners.length === 0) return null;
+
+  const currentBanner = banners[currentIndex];
 
   return (
     <AnimatePresence>
@@ -71,93 +90,57 @@ export default function BannerSlider({
               ×
             </button>
 
-            {/* Registration Form Banner Content */}
-            <div 
-              className={styles.bannerContainer} 
-              onClick={handleBannerClick} 
-              style={{ cursor: 'pointer' }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleBannerClick();
-                }
-              }}
-              aria-label="Click to fill registration form"
-            >
-              <div className={styles.registrationBanner}>
-                {/* Header Section */}
-                <div className={styles.bannerHeader}>
-                  <div className={styles.bannerLogoSection}>
-                    <div className={styles.bannerLogoCircle}>
-                      <div className={styles.bannerLogoText}>BA</div>
-                      <div className={styles.bannerLogoSubtext}>Britto Associates</div>
-                      <div className={styles.bannerLogoRing}>
-                        BHARTIYA RATAN SAMAAN - MAHATMA GANDHI PRIDE AWARD
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.bannerRecognitionSection}>
-                    <div className={styles.bannerRecognitionText}>INTERNATIONALLY RECOGNIZED</div>
-                    <div className={styles.bannerIsoText}>ISO CERTIFIED 9001-2015</div>
-                  </div>
-                </div>
-
-                {/* Company Name */}
-                <div className={styles.bannerCompanyName}>
-                  <h1>BRITTO ASSOCIATES</h1>
-                  <p className={styles.bannerTagline}>(Your Trusted Partner)</p>
-                  <p className={styles.bannerApprovalText}>APPROVED BY GOVERNMENT OF INDIA</p>
-                </div>
-
-                {/* Form Title */}
-                <h2 className={styles.bannerFormTitle}>REGISTRATION FORM FOR ONLINE COUNSELING</h2>
-
-                {/* Form Preview */}
-                <div className={styles.bannerFormPreview}>
-                  <div className={styles.bannerFormRow}>
-                    <div className={styles.bannerFormField}>
-                      <label>Full Name:</label>
-                      <div className={styles.bannerFormPlaceholder}>Enter your full name</div>
-                    </div>
-                    <div className={styles.bannerFormField}>
-                      <label>Phone Number:</label>
-                      <div className={styles.bannerFormPlaceholder}>Enter your phone number</div>
-                    </div>
-                  </div>
-                  <div className={styles.bannerFormRow}>
-                    <div className={styles.bannerFormField}>
-                      <label>Gender:</label>
-                      <div className={styles.bannerFormPlaceholder}>Select Gender</div>
-                    </div>
-                    <div className={styles.bannerFormField}>
-                      <label>Date of Birth:</label>
-                      <div className={styles.bannerFormPlaceholder}>dd-mm-yyyy</div>
-                    </div>
-                  </div>
-                  <div className={styles.bannerFormRow}>
-                    <div className={styles.bannerFormField}>
-                      <label>Email Address:</label>
-                      <div className={styles.bannerFormPlaceholder}>Enter your email address</div>
-                    </div>
-                    <div className={styles.bannerFormField}>
-                      <label>Preferred Time Slot:</label>
-                      <div className={styles.bannerFormPlaceholder}>Select Time Slot</div>
-                    </div>
-                  </div>
-                  <div className={styles.bannerFormField}>
-                    <label>Brief reason for counseling:</label>
-                    <div className={styles.bannerFormPlaceholder}>Please describe your reason for seeking counseling...</div>
-                  </div>
-                </div>
-
-                {/* Click to Fill Button */}
-                <div className={styles.bannerClickText}>
-                  Click here to fill the form →
-                </div>
-              </div>
+            {/* Main Banner Image */}
+            <div className={styles.bannerContainer}>
+              <img 
+                src={currentBanner.src} 
+                alt={currentBanner.alt} 
+                className={styles.bannerImage}
+              />
+              {currentBanner.caption && (
+                <div className={styles.caption}>{currentBanner.caption}</div>
+              )}
             </div>
+
+            {/* Navigation Controls */}
+            {banners.length > 1 && (
+              <>
+                {/* Previous Button */}
+                <button 
+                  className={`${styles.navButton} ${styles.prevButton}`}
+                  onClick={goToPrev}
+                  aria-label="Previous banner"
+                >
+                  ‹
+                </button>
+
+                {/* Next Button */}
+                <button 
+                  className={`${styles.navButton} ${styles.nextButton}`}
+                  onClick={goToNext}
+                  aria-label="Next banner"
+                >
+                  ›
+                </button>
+
+                {/* Dots Indicator */}
+                <div className={styles.dotsContainer}>
+                  {banners.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
+                      onClick={() => goToSlide(index)}
+                      aria-label={`Go to banner ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* Counter */}
+                <div className={styles.counter}>
+                  {currentIndex + 1} / {banners.length}
+                </div>
+              </>
+            )}
           </motion.div>
         </motion.div>
       )}
