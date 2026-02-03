@@ -3,12 +3,15 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
+import ImageModal from "@/components/ImageModal/ImageModal";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import styles from "./education.module.css";
 
 export default function Education() {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<{ src?: string; alt?: string; caption?: string } | null>(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -26,8 +29,8 @@ export default function Education() {
     }
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
   }, []);
@@ -49,6 +52,33 @@ export default function Education() {
     "/education/kristu-jayanti-college.jpeg",
     "/education/manipal-university.jpeg",
     "/education/st-joseph's-university.jpeg"
+  ];
+
+  // Photos from Education page folder
+  const educationPagePhotos = [
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.24.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.25.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.26.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27 (3).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.27.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28 (1).jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.28.jpeg",
+    "/Education page/WhatsApp Image 2025-12-31 at 17.53.31.jpeg"
+  ];
+
+  // Videos from Education page folder
+  const educationPageVideos = [
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.28.mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (1).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (2).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29 (3).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.29.mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (1).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30 (2).mp4",
+    "/Education page/WhatsApp Video 2025-12-31 at 17.53.30.mp4"
   ];
 
   // New banner images for education section
@@ -85,6 +115,16 @@ export default function Education() {
 
   const handleEmailInquiry = () => {
     window.location.href = "mailto:brittoassociates1967@gmail.com?subject=Education Consultancy Inquiry&body=Hello! I'm interested in your education consultancy services. Please provide more information.";
+  };
+
+  const openModal = (src?: string, alt?: string, caption?: string) => {
+    setActive({ src, alt, caption });
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setTimeout(() => setActive(null), 200);
   };
 
   return (
@@ -234,43 +274,75 @@ export default function Education() {
           </div>
         </div>
 
+        {/* Education Gallery */}
+        <div className={styles.educationPhotosSection}>
+          <div className={styles.sectionHeader}>
+            <h3 className={styles.educationPhotosTitle}>Education Gallery</h3>
+          </div>
+          <div className={styles.educationPhotosGrid}>
+            {educationPagePhotos.map((photo, index) => (
+              <div
+                key={index}
+                className={styles.educationPhotoCard}
+                onClick={() => openModal(photo, `Education Activity ${index + 1}`)}
+              >
+                <Image
+                  src={photo}
+                  alt={`Education gallery photo ${index + 1}`}
+                  fill
+                  className={styles.educationPhoto}
+                  unoptimized
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Video Section */}
         <div className={styles.videoSection}>
           <div className={styles.sectionHeader}>
             <h3 className={styles.videoTitle}>Educational Videos</h3>
-            <p className={styles.videoSubtitle}>
-              Watch our informative videos about college admissions and healthcare courses
-            </p>
           </div>
           <div className={styles.videoGrid}>
             <div className={styles.videoCard}>
-              <h4>College Admission Process</h4>
               <video
                 className={styles.videoPlayer}
                 controls
                 preload="metadata"
-                poster="/banner/college-banner.jpeg"
               >
                 <source src="/video/college-admission.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <p>Learn about our comprehensive college admission process and services</p>
             </div>
             <div className={styles.videoCard}>
-              <h4>Health Care Assistant Course</h4>
               <video
                 className={styles.videoPlayer}
                 controls
                 preload="metadata"
-                poster="/banner/free-consultation-banner.jpeg"
               >
                 <source src="/video/health-care-assistent.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <p>Discover opportunities in healthcare with our assistant course program</p>
             </div>
           </div>
+
+          {/* Education Page Videos Grid */}
+          <div className={styles.educationVideosGrid}>
+            {educationPageVideos.map((video, index) => (
+              <div key={index} className={styles.educationVideoCard}>
+                <video
+                  className={styles.educationVideoPlayer}
+                  controls
+                  preload="metadata"
+                >
+                  <source src={video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ))}
+          </div>
         </div>
+
 
         {/* Education Partners Section */}
         <div className={styles.partnersSection} id="partners">
@@ -281,16 +353,17 @@ export default function Education() {
             </p>
           </div>
 
-          <div className={styles.educationImagesGrid}>
+          <div className={styles.galleryGrid}>
             {educationImages.map((image, index) => (
-              <div key={index} className={styles.educationImageCard}>
-                <Image
+              <div
+                key={index}
+                className={styles.galleryItem}
+                onClick={() => openModal(image, `Education Partner ${index + 1}`)}
+              >
+                <img
                   src={image}
                   alt={`Education institution ${index + 1}`}
-                  width={200}
-                  height={150}
-                  className={styles.educationImage}
-                  unoptimized
+                  className={styles.galleryImage}
                 />
               </div>
             ))}
@@ -353,6 +426,14 @@ export default function Education() {
 
       {/* WhatsApp Widget */}
       <WhatsAppWidget />
+
+      <ImageModal
+        open={open}
+        src={active?.src}
+        alt={active?.alt}
+        caption={active?.caption}
+        onClose={closeModal}
+      />
     </>
   );
 }

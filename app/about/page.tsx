@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero/Hero";
 import AwardCard from "@/components/AwardCard/AwardCard";
+import ImageModal from "@/components/ImageModal/ImageModal";
 import WhatsAppWidget from "@/components/WhatsAppWidget/WhatsAppWidget";
 import styles from "./about.module.css";
 
@@ -12,7 +13,9 @@ export default function About() {
   const [activeTab, setActiveTab] = useState("mission");
   /* eslint-enable @typescript-eslint/no-unused-vars */
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<{ src?: string; alt?: string; caption?: string } | null>(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -74,6 +77,20 @@ export default function About() {
     { title: "MSME Recognition – Govt. of India", emoji: "🎖️", image: "/new-img/MSME.jpeg" }
   ];
 
+  const founderGallery = [
+    { id: "f1", src: "/founder/1.jpeg", alt: "Momentous Occasion 1" },
+    { id: "f2", src: "/founder/2.jpeg", alt: "Momentous Occasion 2" },
+    { id: "f3", src: "/founder/3.jpeg", alt: "Momentous Occasion 3" },
+    { id: "f4", src: "/founder/4.jpeg", alt: "Momentous Occasion 4" },
+    { id: "f5", src: "/founder/5.jpeg", alt: "Momentous Occasion 5" },
+    { id: "f6", src: "/founder/6.jpeg", alt: "Momentous Occasion 6" },
+    { id: "f7", src: "/founder/7.jpeg", alt: "Momentous Occasion 7" },
+    { id: "f8", src: "/founder/8.jpeg", alt: "Momentous Occasion 8" },
+    { id: "f9", src: "/founder/9.jpeg", alt: "Momentous Occasion 9" },
+    { id: "f10", src: "/founder/10.jpeg", alt: "Momentous Occasion 10" },
+    { id: "f11", src: "/founder/11.jpeg", alt: "Momentous Occasion 11" },
+  ];
+
   // WhatsApp functions
   const openWhatsApp = (service = "") => {
     const phoneNumber = "919739950153";
@@ -101,6 +118,16 @@ export default function About() {
 
   const handleCertificationClick = (certTitle: string) => {
     openWhatsApp(`I'm impressed by your ${certTitle} and would like to discuss potential collaboration`);
+  };
+
+  const openModal = (src?: string, alt?: string, caption?: string) => {
+    setActive({ src, alt, caption });
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setTimeout(() => setActive(null), 200);
   };
 
   return (
@@ -151,7 +178,7 @@ export default function About() {
           <div className={styles.founderContent}>
             <div className={styles.founderImageWrapper}>
               <img
-                src="/images/founder-smile-event2.jpg"
+                src="/owner photo/image.png"
                 alt="Mr. Antony John Britto - Founder of Britto Associates"
                 className={styles.founderImage}
               />
@@ -171,6 +198,33 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        {/* Momentous Occasions Gallery */}
+        <div className={`${styles.section} ${isVisible ? styles.animateIn : ''}`}>
+          <h2 className={styles.heading}>
+            <span className={styles.headingIcon}>📸</span>
+            Momentous Occasions
+          </h2>
+          <p className={styles.subtext}>
+            Glimpses into the impactful journey and community engagements of our founder.
+          </p>
+          <div className={styles.galleryGrid}>
+            {founderGallery.map((item, index) => (
+              <div
+                key={item.id}
+                className={styles.galleryItem}
+                onClick={() => openModal(item.src, item.alt)}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className={styles.galleryImage}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
 
         {/* Achievements Section */}
         <div className={`${styles.section} ${isVisible ? styles.animateIn : ''}`}>
@@ -265,6 +319,57 @@ export default function About() {
               <h3>Real Estate Certified</h3>
               <p>Professional Real Estate Services</p>
             </div>
+            <div
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 1")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image
+                  src="/certificate/certifcate1.png"
+                  alt="Certificate 1"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
+            <div
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 2")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image
+                  src="/certificate/certificate2.png"
+                  alt="Certificate 2"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
+            <div
+              className={styles.certCard}
+              onClick={() => handleCertificationClick("Certificate 3")}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className={styles.certIcon}>
+                <Image
+                  src="/certificate/certificate3.png"
+                  alt="Certificate 3"
+                  width={150}
+                  height={150}
+                  className={styles.certImage}
+                />
+              </div>
+              <h3>Professional Certificate</h3>
+              <p>Recognition of Excellence</p>
+            </div>
           </div>
         </div>
         {/* Online Media Section */}
@@ -288,7 +393,8 @@ export default function About() {
               { title: "India Online News", url: "https://indiaonlinenews.com/britto-associates/" },
               { title: "Indian Media News", url: "https://indianmedianews.com/britto-associates/" },
               { title: "BizTalk India", url: "https://biztalkindia.com/britto-associates/" },
-              { title: "E India News", url: "https://eindianews.com/britto-associates/" }
+              { title: "E India News", url: "https://eindianews.com/britto-associates/" },
+              { title: "Daily Hunt", url: "https://dhunt.in/12SrTQ" }
             ].map((item, index) => (
               <a
                 key={index}
@@ -338,6 +444,14 @@ export default function About() {
 
       {/* WhatsApp Widget */}
       <WhatsAppWidget />
+
+      <ImageModal
+        open={open}
+        src={active?.src}
+        alt={active?.alt}
+        caption={active?.caption}
+        onClose={closeModal}
+      />
     </>
   );
 }

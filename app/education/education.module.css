@@ -361,74 +361,107 @@
   border-radius: 10px;
 }
 
+/* Education Photos Section */
+.educationPhotosSection {
+  margin: 80px 0;
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.educationPhotosTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.educationPhotosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.educationPhotoCard {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.educationPhotoCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.educationPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.educationPhotoCard:hover .educationPhoto {
+  transform: scale(1.05);
+}
+
 /* Video Section Styles */
 .videoSection {
-  margin: 60px 0;
+  margin: 80px 0;
   padding: 40px 0;
   border-top: 1px solid #e2e8f0;
 }
 
 .videoTitle {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   color: #1e293b;
   text-align: center;
-  margin-bottom: 12px;
-}
-
-.videoSubtitle {
-  font-size: 16px;
-  color: #64748b;
-  text-align: center;
   margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
 }
 
 .videoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .videoCard {
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  text-align: center;
+  aspect-ratio: 16/9;
 }
 
 .videoCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.videoCard h4 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .videoPlayer {
   width: 100%;
-  height: 250px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background: #000;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.videoCard p {
-  font-size: 14px;
-  color: #64748b;
-  line-height: 1.6;
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .educationPhotosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -642,8 +675,439 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
+}
+
+/* Institutional Gallery */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.galleryItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+
+
+/* Consolidated Grid for all Educational Videos */
+.educationVideosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 40px auto 0;
+}
+
+.educationVideoCard {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  aspect-ratio: 16/9;
+}
+
+.educationVideoCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.educationVideoPlayer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* Enhanced Responsive Styles */
+@media (max-width: 1024px) {
+  .educationPhotosGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .educationVideosGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .partnersList ol {
+    columns: 1;
+  }
+  
+  .coursesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionHeader {
+    margin-bottom: 40px;
+  }
+  
+  .heading {
+    font-size: 32px;
+    padding: 0 15px;
+  }
+  
+  .subheading {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  
+  .coursesSection {
+    margin-bottom: 40px;
+  }
+  
+  .coursesTitle {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .coursesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .courseCategory {
+    padding: 20px;
+  }
+  
+  .partnersListSection {
+    padding: 30px 20px;
+    margin-bottom: 40px;
+  }
+  
+  .partnersListTitle {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .partnersList ol {
+    columns: 1;
+    padding-left: 20px;
+  }
+  
+  .healthCareSection {
+    padding: 30px 20px;
+    margin: 30px 0;
+  }
+  
+  .healthCareTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .healthCareSubtitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .healthCareDescription {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .healthCareBtn {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+  
+  .bannerSection {
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .bannerTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .bannerSubtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .bannerGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .bannerCard {
+    height: 200px;
+    padding: 15px;
+  }
+  
+  .educationPhotosSection {
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .educationPhotosTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .educationPhotosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+  }
+  
+  .videoSection {
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .videoTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .videoGrid, .educationVideosGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .partnersSection {
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .partnersTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .partnersSubtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .educationImagesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .educationImageCard {
+    height: 120px;
+    padding: 10px;
+  }
+  
+  .ctaSection {
+    padding: 40px 20px;
+    margin: 40px 10px 0;
+    border-radius: 20px;
+  }
+  
+  .ctaContent {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .ctaText h3 {
+    font-size: 24px;
+  }
+  
+  .ctaText p {
+    font-size: 16px;
+  }
+  
+  .ctaFeatures {
+    align-items: center;
+  }
+  
+  .primaryBtn, .secondaryBtn, .tertiaryBtn {
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+  
+  .subheading {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .coursesTitle,
+  .partnersListTitle,
+  .healthCareTitle,
+  .bannerTitle,
+  .educationPhotosTitle,
+  .videoTitle,
+  .partnersTitle {
+    font-size: 22px;
+  }
+  
+  .coursesGrid {
+    gap: 15px;
+  }
+  
+  .courseCategory {
+    padding: 15px;
+  }
+  
+  .courseCategory h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .courseCategory li {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  
+  .partnersListSection {
+    padding: 25px 15px;
+  }
+  
+  .partnersList li {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  
+  .healthCareSection {
+    padding: 25px 15px;
+  }
+  
+  .healthCareSubtitle {
+    font-size: 14px;
+  }
+  
+  .healthCareDescription {
+    font-size: 13px;
+  }
+  
+  .healthCareBtn {
+    padding: 12px 24px;
+    font-size: 13px;
+    width: 100%;
+  }
+  
+  .bannerGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .bannerCard {
+    height: 180px;
+    padding: 12px;
+  }
+  
+  .educationPhotosGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .educationPhotoCard {
+    aspect-ratio: 1/1; /* Squares look better on small mobile grids */
+  }
+
+  .videoGrid, .educationVideosGrid {
+    gap: 15px;
+  }
+  
+  .educationImagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
   .educationImageCard {
     height: 100px;
+    padding: 8px;
+  }
+  
+  .ctaSection {
+    padding: 30px 15px;
+    margin: 30px 5px 0;
+    border-radius: 15px;
+  }
+  
+  .ctaText h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  
+  .ctaText p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .ctaFeatures {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .ctaFeatures span {
+    font-size: 12px;
+  }
+  
+  .ctaButtons {
+    gap: 12px;
+  }
+  
+  .primaryBtn, .secondaryBtn, .tertiaryBtn {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .heading {
+    font-size: 24px;
+  }
+  
+  .educationPhotosGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .educationVideosGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .educationImagesGrid {
+    grid-template-columns: 1fr;
   }
 }
 
