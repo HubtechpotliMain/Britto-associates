@@ -6,7 +6,7 @@ const FounderArticle: React.FC = () => {
     <div className={styles.founderArticle}>
       <div className={styles.founderImageWrapper}>
         <img 
-          src="/images/founder-smile-event2.jpg" 
+          src="/founder/6.jpeg" 
           alt="Mr. Antony John Britto - Founder of Britto Associates"
           className={styles.founderImage}
         />
