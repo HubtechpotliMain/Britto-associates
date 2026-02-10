@@ -201,6 +201,42 @@ export default function Home() {
         bgImage="/images/home-hero.jpg"
       />
 
+      {/* Trust & Accreditation Bar */}
+      <div className={styles.trustBar}>
+        <div className="container">
+          <div className={styles.trustContainer}>
+            <div className={styles.trustItem}>
+              <div className={styles.trustHeader}>
+                <svg className={styles.trustIcon} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <h4 className={styles.trustTitle}>ISO Certified</h4>
+              </div>
+              <p className={styles.trustDescription}>Operating under International Standard Organization protocols for quality management.</p>
+            </div>
+            <div className={styles.trustItem}>
+              <div className={styles.trustHeader}>
+                <svg className={styles.trustIcon} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                <h4 className={styles.trustTitle}>Government Approved</h4>
+              </div>
+              <p className={styles.trustDescription}>Officially approved by the Government of India.</p>
+            </div>
+            <div className={styles.trustItem}>
+              <div className={styles.trustHeader}>
+                <svg className={styles.trustIcon} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <h4 className={styles.trustTitle}>State Recognized</h4>
+              </div>
+              <p className={styles.trustDescription}>Recognized by the Karnataka State Government.</p>
+            </div>
+            <div className={styles.trustItem}>
+              <div className={styles.trustHeader}>
+                <svg className={styles.trustIcon} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <h4 className={styles.trustTitle}>Tax Compliant</h4>
+              </div>
+              <p className={styles.trustDescription}>Registered GST Tax Payer, ensuring transparent and legal operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Stats Banner */}
       <div className={styles.statsBanner}>
         <div className="container">
