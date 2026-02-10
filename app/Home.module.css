@@ -1,3 +1,106 @@
+/* Trust & Accreditation Bar */
+.trustBar {
+  background: white;
+  padding: 60px 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.trustContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 24px;
+  border-right: 1px solid #f1f5f9;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.trustItem:last-child {
+  border-right: none;
+}
+
+.trustItem:hover {
+  transform: translateY(-8px);
+}
+
+.trustHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trustIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.trustTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+.trustDescription {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .trustContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .trustItem:nth-child(2) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .trustBar {
+    padding: 20px 0;
+  }
+  
+  .trustContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .trustItem {
+    border-right: none;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 0 0 15px 0;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .trustItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .trustHeader {
+    justify-content: center;
+  }
+}
+
 /* Stats Banner */
 .statsBanner {
   background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
